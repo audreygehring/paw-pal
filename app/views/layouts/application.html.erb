@@ -11,6 +11,14 @@
 
   <body>
     <%= render 'layouts/navbar' %>
+    <div>
+      <% flash.each do |key, value| %>
+        <div class="flash text-center flash-<%= key %>">
+          <%= value %>
+        </div>
+      <% end %>
+    </div>
+
     <%= yield %>
   </body>
 </html>

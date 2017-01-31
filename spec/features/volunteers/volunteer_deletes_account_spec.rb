@@ -18,12 +18,13 @@ feature "volunteer deletes account", %{
     fill_in "Email", with: "test@test.com"
     fill_in "user_password", with: "password"
     fill_in "user_password_confirmation", with: "password"
+    fill_in "Role", with: "Volunteer"
 
-    click_button "Sign up"
+    click_button "Sign Up"
 
     click_link "test@test.com"
 
-    click_button "Edit my account!"
+    click_link "Edit my account!"
 
     click_button "Cancel my account"
 

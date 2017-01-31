@@ -17,17 +17,18 @@ feature "volunteer edits account", %{
     visit new_user_registration_path
 
     fill_in "Email", with: "test@test.com"
-    fill_in "user_password", with: "password"
-    fill_in "user_password_confirmation", with: "password"
+    fill_in "Password", with: "password"
+    fill_in "Password Confirmation", with: "password"
+    fill_in "Role", with: "Volunteer"
 
-    click_button "Sign up"
+    click_button "Sign Up"
 
     click_link "test@test.com"
 
-    click_button "Edit my account!"
+    click_link "Edit my account!"
 
     fill_in "Email", with: "test@test.com"
-    fill_in "current_password", with: "password"
+    fill_in "Current password", with: "password"
 
     click_button "Update"
 

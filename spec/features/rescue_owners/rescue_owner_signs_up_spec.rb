@@ -19,10 +19,10 @@ So that I can create an account
     visit new_user_registration_path
 
     fill_in "Email", with: "test@test.com"
-    fill_in "user_password", with: "password"
-    fill_in "user_password_confirmation", with: "password"
+    fill_in "Password", with: "password"
+    fill_in "Password Confirmation", with: "password"
+    fill_in "Role", with: "Rescue Owner"
 
-    expect(page).to have_content("Rescue Sign Up")
     click_button "Sign Up"
 
     expect(page).to have_content("Welcome! You have signed up successfully.")
@@ -32,7 +32,6 @@ So that I can create an account
   scenario "rescue owner signs up using invalid information" do
     visit new_user_registration_path
 
-    expect(page).to have_content("Rescue Sign Up")
     click_button "Sign Up"
 
     expect(page).to have_content("can't be blank")

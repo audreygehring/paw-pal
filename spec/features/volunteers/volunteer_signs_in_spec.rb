@@ -14,11 +14,11 @@ feature "volunteer signs up", %{
 } do
 
   scenario "specify valid credentials" do
-    volunteer = FactoryGirl.create(:volunteer)
     visit new_user_session_path
+    user1 = User.create(email: "test@test.com", password: "password", password_confirmation: "password", role: "Volunteer")
 
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
+    fill_in "Email", with: user1.email
+    fill_in "Password", with: user1.password
 
     click_button "Log in"
 
