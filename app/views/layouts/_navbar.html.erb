@@ -1,11 +1,9 @@
-<div class="top-bar" id="main-menu">
+<nav class="top-bar">
   <div class="top-bar-left">
-    <div>
-      <div class="small-6 columns">
-        <strong><%= link_to "PawPal", root_path %></strong>
-      </div>
-    </div>
-    <div class="top-bar-right">
+    <strong><%= link_to "PawPal", root_path %></strong>
+  </div>
+
+  <section class="top-bar-right">
       <div>
         <% if current_user %>
           <%= link_to current_user.email, user_path(current_user) %> |
@@ -15,6 +13,5 @@
           <%= link_to 'Sign In', new_user_session_path %>
         <% end %>
       </div>
-    </div>
-  </div><br>
-</div>
+    </section>
+  </nav>
