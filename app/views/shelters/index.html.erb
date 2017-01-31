@@ -1,0 +1,13 @@
+<div>
+  <%= render 'layouts/search' %>
+  <div> Welcome to PawPal </div>
+  <ul>
+    <% unless @raw_shelters == nil %>
+      <% @raw_shelters.each do |shelter| %>
+        <li><%= shelter["name"]["$t"] %></li>
+        <%= shelter["address1"]["$t"] %>
+        <%= shelter["city"]["$t"] %>, <%= shelter["state"]["$t"] %> <%= shelter["zip"]["$t"] %><br><br>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

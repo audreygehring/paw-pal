@@ -5,8 +5,8 @@
   <input type="radio" name="role" value="shelter" id="shelter"> Rescue/Shelter
 </form>
 
-<% if params[:role] == 'volunteer' %>
+<% if params[:id] == 'volunteer' %>
   <%= render 'volunteer' %>
-<% else  params[:role] == 'shelter'%>
+<% else  params[:id] == 'shelter'%>
   <%= render 'shelter' %>
 <% end %>
