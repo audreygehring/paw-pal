@@ -17,7 +17,7 @@ require 'rails_helper'
   So that I can create an account
   } do
 
-    xscenario "volunteer signs up using valid information" do
+    scenario "volunteer signs up using valid information" do
       visit new_user_registration_path
 
       # context do
@@ -37,7 +37,7 @@ require 'rails_helper'
       expect(page).to have_content("Sign Out")
     end
 
-    xscenario "volunteer signs up using invalid information" do
+    scenario "volunteer signs up using invalid information" do
       visit new_user_registration_path
 
       # before do
@@ -52,7 +52,7 @@ require 'rails_helper'
       expect(page).to_not have_content("Sign Out")
     end
 
-    xscenario "rescue owner signs up using valid information" do
+    scenario "rescue owner signs up using valid information" do
       visit new_user_registration_path
 
       # before do
@@ -71,7 +71,7 @@ require 'rails_helper'
       expect(page).to have_content("Sign Out")
     end
 
-    xscenario "rescue owner signs up using invalid information" do
+    scenario "rescue owner signs up using invalid information" do
       visit new_user_registration_path
       #
       # before do
