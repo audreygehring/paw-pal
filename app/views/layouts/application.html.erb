@@ -6,11 +6,19 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-    <%= favicon_link_tag '' %>
+    <%= favicon_link_tag 'http://i.imgur.com/gYIqYaL.jpg' %>
   </head>
 
   <body>
     <%= render 'layouts/navbar' %>
+    <div>
+      <% flash.each do |key, value| %>
+        <div class="flash text-center flash-<%= key %>">
+          <%= value %>
+        </div>
+      <% end %>
+    </div>
+
     <%= yield %>
   </body>
 </html>
