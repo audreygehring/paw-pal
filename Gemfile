@@ -1,6 +1,10 @@
 source 'https://rubygems.org/'
+ruby '2.2.5'
 
 gem 'devise'
+gem 'dotenv'
+gem 'dotenv-rails'
+gem 'foundation-rails'
 gem 'jquery-rails'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
