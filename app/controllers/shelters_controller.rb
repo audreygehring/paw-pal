@@ -5,7 +5,5 @@ class SheltersController < ApplicationController
   end
 
   def index
-
   end
-
 end

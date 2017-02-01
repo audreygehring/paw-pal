@@ -9,6 +9,7 @@ class Api::V1::SheltersController < ApplicationController
     shelters_json = JSON.parse(response.body)
 
     @raw_shelters = shelters_json["petfinder"]["shelters"]["shelter"]
-    render json: @raw_shelters
+    @raw_shelters_hash = {shelters: @raw_shelters}
+    render json: @raw_shelters_hash
   end
 end
