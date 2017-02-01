@@ -18,6 +18,8 @@ feature "rescue owner edits account", %{
     fill_in "Email", with: "test@test.com"
     fill_in "user_password", with: "password"
     fill_in "user_password_confirmation", with: "password"
+    select('Rescue Owner', :from => "role")
+
 
     click_button "Sign Up"
 

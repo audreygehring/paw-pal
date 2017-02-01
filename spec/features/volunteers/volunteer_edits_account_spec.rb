@@ -19,13 +19,11 @@ feature "volunteer edits account", %{
     fill_in "Email", with: "test@test.com"
     fill_in "Password", with: "password"
     fill_in "Password Confirmation", with: "password"
-    fill_in "Role", with: "Volunteer"
+    select('Volunteer', :from => "role")
 
     click_button "Sign Up"
 
-    click_link "test@test.com"
-
-    click_link "Edit my account!"
+    click_link "Edit Profile"
 
     fill_in "Email", with: "test@test.com"
     fill_in "Current password", with: "password"

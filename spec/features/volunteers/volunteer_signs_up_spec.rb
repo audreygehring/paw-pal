@@ -22,7 +22,7 @@ require 'rails_helper'
       fill_in "Email", with: "test@test.com"
       fill_in "Password", with: "password"
       fill_in "Password Confirmation", with: "password"
-      fill_in "Role", with: "Volunteer"
+      select('Volunteer', :from => "role")
 
       click_button "Sign Up"
 

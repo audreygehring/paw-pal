@@ -21,7 +21,7 @@ So that I can create an account
     fill_in "Email", with: "test@test.com"
     fill_in "Password", with: "password"
     fill_in "Password Confirmation", with: "password"
-    fill_in "Role", with: "Rescue Owner"
+    select('Rescue Owner', :from => "role")
 
     click_button "Sign Up"
 
