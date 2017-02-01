@@ -18,3 +18,8 @@
 
 #Ignore Codeship
 /coverage
+
+#React
+/node_modules
+/app/assets/javascripts/bundle.js
+/react/coverage
