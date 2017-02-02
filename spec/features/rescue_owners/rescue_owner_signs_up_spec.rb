@@ -18,7 +18,9 @@ So that I can create an account
   scenario "rescue owner signs up using valid information" do
     visit new_user_registration_path
 
-    fill_in "Email", with: "test@test.com"
+    fill_in "First Name", with: "John"
+    fill_in "Last Name", with: "Snow"
+    fill_in "Email", with: "john@snow.com"
     fill_in "Password", with: "password"
     fill_in "Password Confirmation", with: "password"
     select('Rescue Owner', :from => "role")

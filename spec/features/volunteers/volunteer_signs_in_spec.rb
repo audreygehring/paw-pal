@@ -15,7 +15,7 @@ feature "volunteer signs up", %{
 
   scenario "specify valid credentials" do
     visit new_user_session_path
-    user1 = User.create(email: "test@test.com", password: "password", password_confirmation: "password", role: "Volunteer")
+    user1 = User.create(first_name: "Sansa", last_name: "Stark", email: "sansa@stark.com", password: "password", password_confirmation: "password", role: "Volunteer")
 
     fill_in "Email", with: user1.email
     fill_in "Password", with: user1.password

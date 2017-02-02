@@ -15,7 +15,9 @@ feature "rescue owner edits account", %{
   scenario "edit account" do
     visit new_user_registration_path
 
-    fill_in "Email", with: "test@test.com"
+    fill_in "First Name", with: "Robb"
+    fill_in "Last Name", with: "Stark"
+    fill_in "Email", with: "robb@stark.com"
     fill_in "user_password", with: "password"
     fill_in "user_password_confirmation", with: "password"
     select('Rescue Owner', :from => "role")
@@ -23,7 +25,7 @@ feature "rescue owner edits account", %{
 
     click_button "Sign Up"
 
-    click_link "test@test.com"
+    click_link "robb@stark.com"
 
     click_link "Edit my account!"
 
