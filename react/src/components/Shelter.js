@@ -1,47 +1,27 @@
 import React, { Component } from 'react';
 import { Callout } from 'react-foundation';
-import ShelterTile from './ShelterTile';
 
- class Shelter extends Component {
-   constructor(props) {
-     super(props);
-     this.state = {
-       selectedShelterId: null
-     };
-     this.handleClick = this.handleClick.bind(this);
-   }
+ const Shelter = props => {
+   let onClick = () => {
+     props.onClick(props.id);
+   };
 
-   handleClick(id) {
-    if (id === this.state.selectedShelterId) {
-      this.setState({ selectedShelterId: null });
-    } else {
-      this.setState({ selectedShelterId: id });
+  let showDetails;
+  if(props.clickedState === props.id) {
+    showDetails =
+    <div>
+      <div>{props.address}</div>
+      <div>{props.city}, {props.state} {props.zip}</div>
+    </div>;
     }
-  }
-
-  render () {
-    return(
-      <div>
-        <div className="small-6 columns">
-          <Callout className="callout">
-            {this.props.name}
-          </Callout>
-        </div>
-
-        <ShelterTile
-          id = {this.props.id}
-          name = {this.props.name}
-          address = {this.props.address}
-          city = {this.props.city}
-          state = {this.props.state}
-          zip = {this.props.zip}
-          phone = {this.props.phone}
-          onClick = {this.handleClick}
-          clickedState = {this.state.selectedShelterId}
-        />
-      </div>
-    );
-  }
-}
+ return(
+   <div className="small-6 columns">
+    <Callout className="callout" onClick = {onClick}>
+      {props.name}
+      {showDetails}
+    </Callout>
+   </div>
+ );
+};
 
 export default Shelter;
