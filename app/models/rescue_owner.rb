@@ -1,0 +1,2 @@
+class RescueOwner < User
+end

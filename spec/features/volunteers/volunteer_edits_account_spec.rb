@@ -16,7 +16,9 @@ feature "volunteer edits account", %{
   scenario "edit account" do
     visit new_user_registration_path
 
-    fill_in "Email", with: "test@test.com"
+    fill_in "First Name", with: "Arya"
+    fill_in "Last Name", with: "Stark"
+    fill_in "Email", with: "arya@stark.com"
     fill_in "Password", with: "password"
     fill_in "Password Confirmation", with: "password"
     select('Volunteer', :from => "role")
@@ -25,7 +27,7 @@ feature "volunteer edits account", %{
 
     click_link "Edit Profile"
 
-    fill_in "Email", with: "test@test.com"
+    fill_in "Email", with: "arya@stark.com"
     fill_in "Current password", with: "password"
 
     click_button "Update"

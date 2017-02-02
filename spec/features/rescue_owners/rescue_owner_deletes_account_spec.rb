@@ -14,7 +14,9 @@ feature "rescue owner deletes account", %{
   scenario "delete account" do
     visit new_user_registration_path
 
-    fill_in "Email", with: "test@test.com"
+    fill_in "First Name", with: "Rickon"
+    fill_in "Last Name", with: "Stark"
+    fill_in "Email", with: "rickon@stark.com"
     fill_in "user_password", with: "password"
     fill_in "user_password_confirmation", with: "password"
     select('Rescue Owner', :from => "role")

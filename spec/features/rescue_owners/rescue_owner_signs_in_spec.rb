@@ -15,7 +15,7 @@ require "rails_helper"
 
 
     scenario "specify valid credentials" do
-      user1 = User.create(email: "test@test.com", password: "password", password_confirmation: "password", role: "Rescue Owner")
+      user1 = User.create(first_name: "Bran", last_name: "Stark", email: "bran@stark.com", password: "password", password_confirmation: "password", role: "Rescue Owner")
 
       visit new_user_session_path
 

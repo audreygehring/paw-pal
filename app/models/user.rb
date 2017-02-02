@@ -1,7 +1,11 @@
 class User < ApplicationRecord
+  attr_accessor :login
 
   has_many :sessions
-  has_many :volunteers, class_name: :User, through: :sessions
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates_format_of :email, :with => /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
   devise  :database_authenticatable,
           :registerable,
