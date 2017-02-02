@@ -5,5 +5,6 @@ class RescueOwner::UsersController < ApplicationController
       true
     else
       flash[:notice] = "You don't have access to that feature."
+    end
   end
 end
