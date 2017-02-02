@@ -3,12 +3,10 @@ import { Callout } from 'react-foundation';
 
  const Shelter = props => {
   return(
-    <div>
+    <div className="small-6 columns">
       <Callout className="callout">
-        <div className="small-6 columns">
-        <a>{props.name}</a><br/>
-        </div>
-      </Callout><br/>
+        {props.name}
+      </Callout>
     </div>
   );
 };
