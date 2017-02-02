@@ -25,6 +25,7 @@ import { Callout } from 'react-foundation';
         <div>
           <div>{this.props.address}</div>
           <div>{this.props.city}, {this.props.state} {this.props.zip}</div>
+          <strong><div onClick={this.showClick}>More</div></strong>
         </div>;
       }
 
@@ -35,12 +36,9 @@ import { Callout } from 'react-foundation';
    return(
      <div className="small-6 columns">
       <Callout>
-        <div className="small-8 columns" onClick={onClick}>
+        <div onClick={onClick}>
           {this.props.name}
           {showDetails}
-        </div>
-        <div className="small-4 columns">
-          <div onClick={this.showClick}>More</div>
         </div>
       </Callout>
     </div>
