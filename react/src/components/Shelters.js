@@ -9,45 +9,38 @@ class Shelters extends Component {
       data: []
     };
     this.fetchData = this.fetchData.bind(this);
+    this.componentWillReceiveProps = this.componentWillReceiveProps.bind(this);
+}
+
+
+  fetchData() {
+    fetch(`/api/v1/shelters/${this.props.zip}`)
+    .then(response => response.json())
+    .then((res) => {
+      this.setState({
+        data: res.shelters
+      });
+    });
   }
-  componentDidUpdate(){
-    if (this.props.zip.length == 5) {
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.zip.length == 6) {
       this.fetchData();
     }
   }
 
-  fetchData() {
-    fetch(`/api/v1/shelters/${this.props.zip}`)
-      .then(response => {
-        if (response.ok) {
-          return response;
-      } else {
-          let errorMessage = `${response.status} (${response.statusText})`,
-          error = new Error(errorMessage);
-          throw(error);
-        }
-      })
-    .then(response => response.json())
-    .then(body => {
-      this.setState({ data: body.shelters });
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
-  }
-
   render() {
-    let shelterList = this.state.data.map(shelter => {
-      return (
-        <Shelter
-          key = {shelter["id"]["$t"]}
-          id = {shelter["id"]["$t"]}
-          name = {shelter["name"]["$t"]}
-        />
-      );
-    });
-
-    return(
+    return (
       <div>
-          {shelterList}
+        {this.state.data.map(shelter => {
+          return (
+            <Shelter
+              key = {shelter["id"]["$t"]}
+              id = {shelter["id"]["$t"]}
+              name = {shelter["name"]["$t"]}
+            />
+          );
+        })}
       </div>
     );
   }
