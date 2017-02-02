@@ -1,27 +1,51 @@
 import React, { Component } from 'react';
 import { Callout } from 'react-foundation';
 
- const Shelter = props => {
-   let onClick = () => {
-     props.onClick(props.id);
-   };
+ class Shelter extends Component {
+   constructor(props) {
+     super(props);
+     this.state = {
+       shelterId: null
+     };
+     this.showClick = this.showClick.bind(this);
+   }
 
-  let showDetails;
-  if(props.clickedState === props.id) {
-    showDetails =
-    <div>
-      <div>{props.address}</div>
-      <div>{props.city}, {props.state} {props.zip}</div>
-    </div>;
+    showClick(event) {
+      this.setState({ shelterId: this.props.id });
     }
- return(
-   <div className="small-6 columns">
-    <Callout className="callout" onClick = {onClick}>
-      {props.name}
-      {showDetails}
-    </Callout>
-   </div>
- );
-};
+
+
+
+
+
+  render() {
+    let showDetails;
+    if (this.props.clickedState === this.props.id) {
+      showDetails =
+        <div>
+          <div>{this.props.address}</div>
+          <div>{this.props.city}, {this.props.state} {this.props.zip}</div>
+        </div>;
+      }
+
+      let onClick = () => {
+        this.props.onClick(this.props.id);
+      };
+
+   return(
+     <div className="small-6 columns">
+      <Callout>
+        <div className="small-8 columns" onClick={onClick}>
+          {this.props.name}
+          {showDetails}
+        </div>
+        <div className="small-4 columns">
+          <div onClick={this.showClick}>More</div>
+        </div>
+      </Callout>
+    </div>
+   );
+  }
+}
 
 export default Shelter;

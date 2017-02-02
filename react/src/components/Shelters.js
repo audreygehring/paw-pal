@@ -11,7 +11,7 @@ class Shelters extends Component {
     this.fetchData = this.fetchData.bind(this);
     this.componentWillReceiveProps = this.componentWillReceiveProps.bind(this);
     this.handleClick = this.handleClick.bind(this);
-}
+  }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.zip.length == 5) {
@@ -30,34 +30,34 @@ class Shelters extends Component {
   }
 
   handleClick(id) {
-   if (id === this.state.selectedShelterId) {
-     this.setState({ selectedShelterId: null });
-   } else {
-     this.setState({ selectedShelterId: id });
-   }
- }
+    if (id === this.state.selectedShelterId) {
+      this.setState({ selectedShelterId: null });
+    } else {
+      this.setState({ selectedShelterId: id });
+    }
+  }
 
   render() {
+    let shelters = this.state.data.map(shelter => {
+      return (
+        <Shelter
+          key={shelter.id.$t}
+          id={shelter.id.$t}
+          name={shelter.name.$t}
+          address={shelter.address1.$t}
+          city={shelter.city.$t}
+          state={shelter.state.$t}
+          zip={shelter.zip.$t}
+          phone={shelter.phone.$t}
+          onClick={this.handleClick}
+          clickedState={this.state.selectedShelterId}
+        />
+      );
+    });
+
     return (
       <div>
-        {this.state.data.map(shelter => {
-          return (
-            <div>
-              <Shelter
-                key={shelter.id.$t}
-                id={shelter.id.$t}
-                name={shelter.name.$t}
-                address={shelter.address1.$t}
-                city={shelter.city.$t}
-                state={shelter.state.$t}
-                zip={shelter.zip.$t}
-                phone={shelter.phone.$t}
-                onClick={this.handleClick}
-                clickedState={this.state.selectedShelterId}
-              />
-            </div>
-          );
-        })}
+        {shelters}
       </div>
     );
   }

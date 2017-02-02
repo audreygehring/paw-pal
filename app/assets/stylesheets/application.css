@@ -23,7 +23,15 @@
 .top-bar-right {
 }
 
+body {
+  background-image: url('http://i.imgur.com/IRpn6rDr.jpg')
+}
+
 .title-text {
   text-align: center;
   font-size: 30px;
+}
+
+.callout {
+  overflow: auto;
 }
