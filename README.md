@@ -3,27 +3,19 @@
 ![Coverage Status](https://coveralls.io/repos/audreygehring/paw-pal/badge.png)
 
 
-# README
+# PawPal
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+http://paw-pal.herokuapp.com
 
-Things you may want to cover:
+#About
+PawPal connects volunteers with local animal shelters/rescues to make it as easy as possible to find a place to make a difference AND play with cats and dogs.
 
-* Ruby version
+#Basics
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Ruby on Rails back-end
+* React front-end for live updating search functionality
+* PetFinder API integration
+* Foundation
+* User authentication with Devise
+* Capybara test suite
+* Workflow organization with Trello
