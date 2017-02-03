@@ -18,6 +18,6 @@ class Api::V1::SheltersController < ApplicationController
   end
 
   def create
-    
+
   end
 end

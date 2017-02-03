@@ -14,14 +14,11 @@
 
   <body>
     <%= render 'layouts/navbar' %>
-    <div>
-      <% flash.each do |key, value| %>
-        <div class="flash text-center flash-<%= key %>">
-          <%= value %>
-        </div>
-      <% end %>
+    <% flash.each do |key, value| %>
+    <div class="flash text-center flash-<%= key %>">
+      <%= value %>
     </div>
-    <div id="search-bar"></div>
+    <% end %>
     <div id="app"></div>
     <%= yield %>
   </body>
