@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
     added_attrs = [
       :first_name,
       :last_name,
+      :favorite_animal,
       :remember_me
     ]
     devise_parameter_sanitizer.permit(:sign_up, keys: added_attrs)

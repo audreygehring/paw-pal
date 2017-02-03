@@ -24,7 +24,7 @@ import { Callout } from 'react-foundation';
       };
 
    return(
-     <div className="small-6 columns">
+     <div className="large-6 small-6 columns">
       <Callout>
         <div onClick={onClick}>
           {this.props.name}
