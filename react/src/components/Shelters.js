@@ -15,6 +15,7 @@ class Shelters extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.zip.length == 5) {
+      document.body.style.backgroundImage = "none";
       this.fetchData(nextProps);
     }
   }

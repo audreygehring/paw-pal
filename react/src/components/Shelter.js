@@ -5,18 +5,8 @@ import { Callout } from 'react-foundation';
    constructor(props) {
      super(props);
      this.state = {
-       shelterId: null
-     };
-     this.showClick = this.showClick.bind(this);
-   }
-
-    showClick(event) {
-      this.setState({ shelterId: this.props.id });
-    }
-
-
-
-
+    };
+  }
 
   render() {
     let showDetails;
@@ -25,6 +15,7 @@ import { Callout } from 'react-foundation';
         <div>
           <div>{this.props.address}</div>
           <div>{this.props.city}, {this.props.state} {this.props.zip}</div>
+          <strong><a href={`/shelters/${this.props.id}${this.props.zip}`}>More</a></strong>
         </div>;
       }
 
@@ -35,12 +26,9 @@ import { Callout } from 'react-foundation';
    return(
      <div className="small-6 columns">
       <Callout>
-        <div className="small-8 columns" onClick={onClick}>
+        <div onClick={onClick}>
           {this.props.name}
           {showDetails}
-        </div>
-        <div className="small-4 columns">
-          <div onClick={this.showClick}>More</div>
         </div>
       </Callout>
     </div>

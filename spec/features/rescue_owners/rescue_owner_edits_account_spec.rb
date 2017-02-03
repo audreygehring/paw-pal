@@ -18,8 +18,8 @@ feature "rescue owner edits account", %{
     fill_in "First Name", with: "Robb"
     fill_in "Last Name", with: "Stark"
     fill_in "Email", with: "robb@stark.com"
-    fill_in "user_password", with: "password"
-    fill_in "user_password_confirmation", with: "password"
+    fill_in "password", with: "password"
+    fill_in "password_confirmation", with: "password"
     select('Rescue Owner', :from => "role")
 
 

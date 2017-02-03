@@ -35,3 +35,8 @@ body {
 .callout {
   overflow: auto;
 }
+
+.flash {
+  background-color: #A1355F;
+  color: white;
+}
