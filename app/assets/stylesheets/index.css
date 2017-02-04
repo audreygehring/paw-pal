@@ -1,0 +1,37 @@
+
+.top-bar-left {
+  font-size: 26px;
+}
+
+
+.top-bar-right {
+  margin-top: 8px;
+}
+
+body {
+  background-image: url('http://i.imgur.com/IRpn6rDr.jpg')
+}
+
+.title-text {
+  text-align: center;
+  font-size: 30px;
+}
+
+.callout {
+  overflow: auto;
+  text-align: left;
+}
+
+.flash {
+  background-color: #A1355F;
+  color: white;
+  vertical-align: middle;
+  margin: auto;
+}
+
+
+.callout#non-home-pages {
+  width: 500px;
+  vertical-align: middle;
+  margin: auto;
+}

@@ -2,6 +2,7 @@ class User < ApplicationRecord
   attr_accessor :login
 
   has_many :sessions
+  has_many :shelters, through: :sessions
 
   validates :first_name, presence: true
   validates :last_name, presence: true

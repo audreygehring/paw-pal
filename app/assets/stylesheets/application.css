@@ -15,28 +15,3 @@
  *= require foundation_and_overrides
 
  */
-
-.top-bar-left {
-  font-size: 26px;
-}
-
-.top-bar-right {
-}
-
-body {
-  background-image: url('http://i.imgur.com/IRpn6rDr.jpg')
-}
-
-.title-text {
-  text-align: center;
-  font-size: 30px;
-}
-
-.callout {
-  overflow: auto;
-}
-
-.flash {
-  background-color: #A1355F;
-  color: white;
-}

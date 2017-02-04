@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @sessions = @user.sessions
+    @volunteer_sessions = @user.volunteer_sessions
   end
 
   def new

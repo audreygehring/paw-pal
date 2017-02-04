@@ -1,10 +1,8 @@
-<div class="callout">
-  <div class="columns large-12 small-6">
+<div class="callout" id="non-home-pages">
+  <div class="columns large-12 small-12">
     <div>Welcome, <%= current_user.first_name %>!</div>
     <div><%= current_user.email %></div>
-    <%= link_to "Edit Account", edit_user_registration_path %>
-  </div>
-  <div class="columns large-12 small-6">
-    Favorite Animal: <%= current_user.favorite_animal %>
+    <div>Favorite Animal: <%= current_user.favorite_animal %></div><br>
+    <div><%= link_to "Edit Account", edit_user_registration_path %></div>
   </div>
 </div>
