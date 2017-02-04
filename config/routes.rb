@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users do
-    resources :volunteer_sessions
+    resources :volunteer_sessions, except: [:index]
   end
 
-  resources :shelters
+  resources :shelters, only: [:index, :show]
 
   namespace :api do
     namespace :v1 do

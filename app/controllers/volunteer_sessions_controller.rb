@@ -13,7 +13,6 @@ class VolunteerSessionsController < ApplicationController
   def update
   end
   def destroy
-
   end
 
   private
