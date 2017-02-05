@@ -22,18 +22,22 @@
       <% end %>
 
       <div class="field">
+        <% f.label :favorite_animal, "Favorite Animal" %>
         <%= f.text_field :favorite_animal, placeholder: "Favorite Animal" %>
       </div>
 
       <div class="field">
+        <% f.label :password, "Password" %>
         <%= f.password_field :password, label: "New Password", autocomplete: "off", placeholder: "New Password (Leave blank if you don't want to change)" %>
       </div>
 
       <div class="field">
+        <% f.label :password_confirmation, "Password Confirmation" %>
         <%= f.password_field :password_confirmation, label: "Password Confirmation", autocomplete: "off", placeholder: "New Password Confirmation" %>
       </div>
 
       <div class="field">
+        <% f.label :current_password, "Current Password" %>
         <%= f.password_field :current_password, label: "Current Password", autocomplete: "off", placeholder: "Current Password (Enter to make changes)" %>
       </div>
 

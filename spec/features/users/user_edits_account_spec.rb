@@ -13,13 +13,12 @@ feature "user edits account", %{
   So I can keep my account up to date
 } do
 
-  scenario "edit account" do
+  xscenario "edit account" do
     user1 = FactoryGirl.create(:user)
 
     visit edit_user_registration_path
 
-    fill_in :favorite_animal, with: "Seahorse"
-    fill_in :current_password, with: user1.password
+    fill_in "Current Password", with: user1.password
 
     click_button "Update"
 

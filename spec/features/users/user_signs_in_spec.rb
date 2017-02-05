@@ -14,8 +14,9 @@ feature "user signs up", %{
 } do
 
   scenario "specify valid credentials" do
+    user1 = FactoryGirl.create(:user)
+
     visit new_user_session_path
-    user1 = User.create(first_name: "Sansa", last_name: "Stark", email: "sansa@stark.com", password: "password", password_confirmation: "password", favorite_animal: "Dog")
 
     fill_in "Email", with: user1.email
     fill_in "Password", with: user1.password
