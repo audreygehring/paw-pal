@@ -3,6 +3,6 @@
     <div>Welcome, <%= current_user.first_name %>!</div>
     <div><%= current_user.email %></div>
     <div>Favorite Animal: <%= current_user.favorite_animal %></div><br>
-    <div><%= link_to "Edit Account", edit_user_registration_path %></div>
+    <div><%= link_to "Edit Account", edit_user_registration_path, class: "button small" %></div>
   </div>
 </div>

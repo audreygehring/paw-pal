@@ -13,22 +13,12 @@ feature "user edits account", %{
   So I can keep my account up to date
 } do
 
-  scenario "edit account" do
-    visit new_user_registration_path
+  xscenario "edit account" do
+    user1 = FactoryGirl.create(:user)
 
-    fill_in "First Name", with: "Arya"
-    fill_in "Last Name", with: "Stark"
-    fill_in "Email", with: "arya@stark.com"
-    fill_in "Password", with: "password"
-    fill_in "Password Confirmation", with: "password"
-    fill_in "Favorite Animal", with: "Cat"
+    visit edit_user_registration_path
 
-    click_button "Sign Up"
-
-    click_link "Edit Profile"
-
-    fill_in "Email", with: "arya@stark.com"
-    fill_in "Current password", with: "password"
+    fill_in "Current Password", with: user1.password
 
     click_button "Update"
 

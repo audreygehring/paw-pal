@@ -13,16 +13,13 @@ feature "user deletes account", %{
 } do
 
   scenario "delete account" do
-    visit new_user_registration_path
+    user1 = FactoryGirl.create(:user)
 
-    fill_in "First Name", with: "Arya"
-    fill_in "Last Name", with: "Stark"
-    fill_in "Email", with: "arya@stark.com"
-    fill_in "user_password", with: "password"
-    fill_in "user_password_confirmation", with: "password"
-    fill_in "Favorite Animal", with: "Dog"
+    visit new_user_session_path
+    fill_in "Email", with: user1.email
+    fill_in "Password", with: user1.password
 
-    click_button "Sign Up"
+    click_button "Log in"
 
     click_link "Edit Profile"
 

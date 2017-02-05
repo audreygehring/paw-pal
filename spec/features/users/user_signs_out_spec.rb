@@ -11,7 +11,8 @@ feature "user signs out", %{
   To protect my identity
 } do
   scenario "authenticated user signs out" do
-    user1 = User.create(first_name: "Sansa", last_name: "Stark", email: "sansa@stark.com", password: "password", password_confirmation: "password", favorite_animal: "Lion")
+    user1 = FactoryGirl.create(:user)
+
     visit new_user_session_path
 
     fill_in "Email", with: user1.email

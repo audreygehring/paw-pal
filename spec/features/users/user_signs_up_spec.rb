@@ -15,7 +15,7 @@ require 'rails_helper'
   So that I can create an account
   } do
 
-    scenario "user signs up using valid information" do
+    xscenario "user signs up using valid information" do
       visit new_user_registration_path
 
       fill_in "First Name", with: "Arya"
@@ -24,7 +24,7 @@ require 'rails_helper'
       fill_in "Password", with: "password"
       fill_in "Password Confirmation", with: "password"
       fill_in "Favorite Animal", with: "Horse"
-      
+
       click_button "Sign Up"
 
       expect(page).to have_content("Welcome! You have signed up successfully.")
