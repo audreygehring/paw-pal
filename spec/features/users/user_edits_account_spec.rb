@@ -7,8 +7,8 @@ require "rails_helper"
 # * If I click, my account information shows up in a form for editing
 # * I see a button to "Save" my changes
 
-feature "volunteer edits account", %{
-  As a registered volunteer
+feature "user edits account", %{
+  As a registered user
   I want to edit my account
   So I can keep my account up to date
 } do
@@ -21,7 +21,7 @@ feature "volunteer edits account", %{
     fill_in "Email", with: "arya@stark.com"
     fill_in "Password", with: "password"
     fill_in "Password Confirmation", with: "password"
-    select('Volunteer', :from => "role")
+    fill_in "Favorite Animal", with: "Cat"
 
     click_button "Sign Up"
 

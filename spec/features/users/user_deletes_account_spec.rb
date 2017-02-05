@@ -6,8 +6,8 @@ require "rails_helper"
   # * If I confirm the delete, I receive a message that my account has been deleted
   # * I can no longer Sign In
 
-feature "volunteer deletes account", %{
-  As a registered  volunteer
+feature "user deletes account", %{
+  As a registered  user
   I want to delete my account
   If I am unsatisfied
 } do
@@ -20,7 +20,7 @@ feature "volunteer deletes account", %{
     fill_in "Email", with: "arya@stark.com"
     fill_in "user_password", with: "password"
     fill_in "user_password_confirmation", with: "password"
-    select('Volunteer', :from => "role")
+    fill_in "Favorite Animal", with: "Dog"
 
     click_button "Sign Up"
 

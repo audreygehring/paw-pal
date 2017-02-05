@@ -7,7 +7,7 @@
     <strong><div>Volunteer Here!</div></strong>
     <br>
 
-    <%= form_for [@user, @volunteer_session] do |f| %>
+    <%= form_for [@user, @volunteer_session], as: :post, url: new_user_volunteer_session_path do |f| %>
       <%= f.select :time, options_for_select('10 a.m. - 11 a.m.', '11 a.m. - 12 p.m.', '12 p.m. - 1 p.m.', '1 p.m. - 2 p.m.', '2 p.m. - 3 p.m.', '3 p.m. - 4 p.m.') %>
     <% end %>
   </div>

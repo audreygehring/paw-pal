@@ -26,6 +26,10 @@ class SheltersController < ApplicationController
                   zip: @shelter_show_data["zip"]["$t"],
                   key: shelter_id)
     @shelter.save
+
+    @user = current_user
+    @volunteer_session = VolunteerSession.new
+
   end
 
   def index

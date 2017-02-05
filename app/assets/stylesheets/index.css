@@ -3,6 +3,11 @@
   font-size: 26px;
 }
 
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
 
 .top-bar-right {
   margin-top: 8px;
@@ -31,7 +36,7 @@ body {
 
 
 .callout#non-home-pages {
-  width: 500px;
+  width: 550px;
   vertical-align: middle;
   margin: auto;
 }

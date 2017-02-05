@@ -2,6 +2,7 @@ class VolunteerSessionsController < ApplicationController
   before_action :authenticate_user!
 
   def new
+    @user = current_user
     @volunteer_session = VolunteerSession.new
   end
   def create
