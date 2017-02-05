@@ -1,2 +1,0 @@
-class RescueOwner < User
-end

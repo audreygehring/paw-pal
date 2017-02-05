@@ -4,16 +4,17 @@
   </div>
 
   <section class="top-bar-right">
-      <div>
-        <% if current_user %>
-          <%= link_to current_user.email, user_path(current_user) %> |
-          <%= link_to "View Profile", user_path(current_user) %> |
-          <%= link_to "Edit Profile", edit_user_registration_path %> |
-          <%= link_to "Sign Out", destroy_user_session_path, method: :delete  %>
-        <% else %>
-          <%= link_to 'Sign Up', new_user_registration_path %> |
-          <%= link_to 'Sign In', new_user_session_path %>
+      <% if current_user %>
+        <%= link_to current_user.email, user_path(current_user) %> |
+        <%= link_to "View Profile", user_path(current_user) %> |
+        <%= link_to "Edit Profile", edit_user_registration_path %> |
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete  %>
+        <% if current_user.admin == true %>
+          | <%= link_to "Admin", admin_users_path %>
         <% end %>
-      </div>
+      <% else %>
+        <%= link_to 'Sign Up', new_user_registration_path %> |
+        <%= link_to 'Sign In', new_user_session_path %>
+      <% end %>
     </section>
   </nav>

@@ -1,0 +1,42 @@
+
+.top-bar-left {
+  font-size: 26px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.top-bar-right {
+  margin-top: 8px;
+}
+
+body {
+  background-image: url('http://i.imgur.com/IRpn6rDr.jpg')
+}
+
+.title-text {
+  text-align: center;
+  font-size: 30px;
+}
+
+.callout {
+  overflow: auto;
+  text-align: left;
+}
+
+.flash {
+  background-color: #A1355F;
+  color: white;
+  vertical-align: middle;
+  margin: auto;
+}
+
+
+.callout#non-home-pages {
+  width: 550px;
+  vertical-align: middle;
+  margin: auto;
+}

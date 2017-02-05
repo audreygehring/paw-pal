@@ -1,16 +1,14 @@
-<div class="callout">
+<div class="callout" id="non-home-pages">
+  <div class="large-6 small-6 columns">
     <div><%= @shelter.name %></div>
     <div><%= @shelter.address %></div>
     <div><%= @shelter.city %>, <%=@shelter.state %> <%= @shelter.zip %></div>
     <br>
     <strong><div>Volunteer Here!</div></strong>
     <br>
-    <select name="time" label="time">
-      <option value="10 a.m. - 11 a.m.">10 a.m. - 11 a.m.</option>
-      <option value="11 a.m. - 12 p.m." selected="selected">11 a.m. - 12 p.m.</option>
-      <option value="12 p.m. - 1 p.m.">12 p.m. - 1 p.m.</option>
-      <option value="1 p.m. - 2 p.m." selected="selected">1 p.m. - 2 p.m.</option>
-      <option value="2 p.m. - 3 p.m.">2 p.m. - 3 p.m.</option>
-      <option value="3 p.m. - 4 p.m.">3 p.m. - 4 p.m.</option>
-    </select>
+
+    <%= form_for [@user, @volunteer_session], as: :post, url: new_user_volunteer_session_path do |f| %>
+      <%= f.select :time, options_for_select('10 a.m. - 11 a.m.', '11 a.m. - 12 p.m.', '12 p.m. - 1 p.m.', '1 p.m. - 2 p.m.', '2 p.m. - 3 p.m.', '3 p.m. - 4 p.m.') %>
+    <% end %>
+  </div>
 </div>
