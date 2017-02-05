@@ -2,7 +2,7 @@
 
   <h2 class="title-text">Sign Up</h2>
 
-  <div class="small-6 small-centered columns">
+  <div class="small-10 small-centered columns">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
 
@@ -23,15 +23,15 @@
       </div>
 
       <div class="field">
-        <%= f.password_field :password, autocomplete: "off", placeholder: "Password (Must be 6 Characters)"%>
+        <%= f.password_field :password, label: "Password", autocomplete: "off", placeholder: "Password (Must be 6 Characters)"%>
       </div>
 
       <div class="field">
-        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password Confirmation" %>
+        <%= f.password_field :password_confirmation, label: "Password Confirmation", autocomplete: "off", placeholder: "Password Confirmation" %>
       </div>
 
       <div class="actions">
-        <%= f.submit "Sign Up" %>
+        <%= f.submit "Sign Up", class: "button small" %>
       </div>
     <% end %>
 
