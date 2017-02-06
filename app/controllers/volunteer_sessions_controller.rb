@@ -2,18 +2,22 @@ class VolunteerSessionsController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @user = current_user
     @volunteer_session = VolunteerSession.new
+    @shelter = Shelter.find(params[:shelter_id])
   end
+
   def create
+    @shelter = Shelter.find(params[:shelter_id])
     @user = current_user
     @volunteer_session = VolunteerSession.new(volunteer_session_params)
-  end
-  def edit
-  end
-  def update
-  end
-  def destroy
+
+    if @volunteer_session.save
+      flash[:notice] = "Volunteer Session added successfully."
+      redirect_to shelter_path(@shelter)
+    else
+      flash[:notice] = @review.errors.full_messages.to_sentence
+      render :new
+    end
   end
 
   private
