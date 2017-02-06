@@ -3,5 +3,6 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @volunteer_sessions = VolunteerSession.where(user: @user)
   end
 end
