@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: [:index, :destroy]
+    resources :volunteer_sessions, only: [:index, :destroy]
   end
 
   namespace :api do

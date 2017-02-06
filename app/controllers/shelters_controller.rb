@@ -26,6 +26,6 @@ class SheltersController < ApplicationController
     @created_shelter.save
 
     @user = current_user
-    @volunteer_session = VolunteerSession.new
+    @volunteer_sessions = VolunteerSession.where(shelter: @created_shelter)
   end
 end
