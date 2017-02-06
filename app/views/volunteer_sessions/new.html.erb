@@ -1,0 +1,23 @@
+<div class="callout" id="non-home-pages">
+  <%= form_for [@shelter, @volunteer_session] do |f| %>
+
+    <div class="field">
+      <% f.label :date %>
+      <%= f.date_field(:date) %>
+    </div>
+
+    <select name="field">
+      <% f.label :time %>
+        <option value="10 a.m. - 11 a.m.">10 a.m. - 11 a.m.</option>
+        <option value="11 a.m. - 12 p.m.">11 a.m. - 12 a.m.</option>
+        <option value="12 p.m. - 1 p.m.">12 p.m. - 1 p.m.</option>
+        <option value="1 p.m. - 2 p.m.">1 p.m - 2 p.m.</option>
+        <option value="2 p.m. - 3 p.m.">2 p.m. - 3 p.m.</option>
+        <option value="3 p.m. - 4 p.m.">3 p.m - 4 p.m.</option>
+    </select>
+
+    <div>
+      <%= f.submit "Submit", class: "button small" %>
+    </div>
+  <% end %>
+</div>

@@ -3,11 +3,13 @@ Rails.application.routes.draw do
 
   devise_for :users, except: [:index]
 
-  resources :users do
+  resources :shelters, except: [:index] do
     resources :volunteer_sessions, except: [:index]
   end
 
   resources :shelters, only: [:index, :show]
+
+  resources :users
 
   namespace :admin do
     resources :users, only: [:index, :destroy]

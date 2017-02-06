@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170204215914) do
+ActiveRecord::Schema.define(version: 20170206163237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "join_shelters", force: :cascade do |t|
+    t.integer "shelter_id", null: false
+    t.string  "key_zip",    null: false
+  end
 
   create_table "shelters", force: :cascade do |t|
     t.string   "name",       null: false
