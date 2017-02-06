@@ -20,7 +20,7 @@ end
 
 group :development, :test do
   gem 'capybara'
-  gem 'coveralls', require: false
+  gem 'coveralls'
   gem 'factory_girl_rails'
   gem 'launchy', require: false
   gem 'pry-rails'
