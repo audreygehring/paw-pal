@@ -15,8 +15,7 @@ class VolunteerSessionsController < ApplicationController
       flash[:notice] = "Volunteer Session added successfully."
       redirect_to shelter_path(@shelter)
     else
-      flash[:notice] = @review.errors.full_messages.to_sentence
-      render :new
+      binding.pry
     end
   end
 
