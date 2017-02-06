@@ -11,13 +11,21 @@ class VolunteerSessionsController < ApplicationController
     @volunteer_session = VolunteerSession.find_or_create_by(volunteer_session_params)
     @shelter = Shelter.find(params[:shelter_id])
     @user = current_user
-    binding.pry
 
     if @volunteer_session.save
       flash[:notice] = "Volunteer Session added successfully."
       redirect_to user_path(@user)
     end
   end
+
+  def destroy
+    @volunteer_session = VolunteerSession.find(params[:id])
+
+    @volunteer_session.destroy
+    flash[:notice] = "Volunteer session deleted!"
+    redirect_to user_path(current_user)
+  end
+
 
   private
 

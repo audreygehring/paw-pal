@@ -3,9 +3,11 @@
   <div class="callout" id="non-home-pages">
     <h2> User Account List </h2>
     <% @users.each do |user| %>
-      <%= user.first_name %> <%= user.last_name %>
-      <%= link_to "Delete #{user.email}'s Account", admin_user_path(user), method: :delete %><br>
-    <% end %><br>
+      <div class="callout" id="inner-callout">
+        <%= user.first_name %> <%= user.last_name %>
+        <%= link_to "Delete #{user.email}'s Account", admin_user_path(user), method: :delete %><br>
+      <% end %><br>
+      </div>
     <%= link_to "Back", shelters_path, method: :get %>
   </div>
 <% end %>

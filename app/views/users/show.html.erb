@@ -5,4 +5,18 @@
     <div>Favorite Animal: <%= current_user.favorite_animal %></div><br>
     <div><%= link_to "Edit Account", edit_user_registration_path, class: "button small" %></div>
   </div>
+
+  <h2>Volunteer Sessions</h2>
+    <% @volunteer_sessions.each do |volunteer_session| %>
+      <div class="callout" id="inner-callout">
+        <div class="small-7 columns">
+          <% shelter = Shelter.find(volunteer_session.shelter_id) %>
+          <strong><%= shelter.name %></strong><br>
+          When: <%= volunteer_session.date %> from <%= volunteer_session.time %>
+        </div>
+        <div class="small-5 columns">
+          <%= link_to "Delete Session", shelter_volunteer_session_path(shelter, volunteer_session), method: :delete %><br>
+        </div>
+      </div>
+    <% end %>
 </div>
