@@ -14,8 +14,8 @@ import { Callout } from 'react-foundation';
       showDetails =
         <div>
           <div>{this.props.address}</div>
-          <div>{this.props.city}, {this.props.state} {this.props.zip}</div>
-          <strong><a href={`/shelters/${this.props.id}${this.props.zip}`}>More</a></strong>
+          <div>{this.props.city}, {this.props.state} {this.props.zip}</div><br/>
+          <strong><a className="button small" href={`/shelters/${this.props.id}${this.props.zip}`}>More</a></strong>
         </div>;
       }
 
@@ -25,7 +25,7 @@ import { Callout } from 'react-foundation';
 
    return(
      <div className="large-6 small-6 columns">
-      <Callout>
+      <Callout id="shelters-index">
         <div onClick={onClick}>
           {this.props.name}
           {showDetails}
