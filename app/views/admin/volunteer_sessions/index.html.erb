@@ -1,0 +1,17 @@
+<div class="callout" id="non-home-pages">
+<% if current_user && current_user.admin? %>
+    <h2> User Account List </h2>
+    <%= link_to "Back", shelters_path, method: :get %> |
+    <%= link_to "Volunteer Sessions List", admin_users_path, method: :get %>
+    <br><br>
+    <% @volunteer_sessions.each do |volunteer_session| %>
+      <div class="callout" id="inner-callout">
+        <% volunteer = User.find(volunteer_session.user) %>
+        <% shelter = Shelter.find(volunteer_session.shelter) %>
+        <strong><%= shelter.name %></strong><br>
+        <%= volunteer.email %> (<%= volunteer_session.date %> from <%= volunteer_session.time %>)<br>
+        <%= link_to "Delete Session", admin_volunteer_session_path(volunteer_session), method: :delete %><br>
+      </div>
+      <% end %><br>
+  </div>
+<% end %>
