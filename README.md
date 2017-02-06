@@ -2,7 +2,6 @@
 ![Code Climate](https://codeclimate.com/github/audreygehring/paw-pal.png)
 ![Coverage Status](https://coveralls.io/repos/audreygehring/paw-pal/badge.png)
 
-
 # PawPal
 
 http://paw-pal.herokuapp.com
