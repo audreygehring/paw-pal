@@ -4,6 +4,8 @@
     <div><%= @created_shelter.address %></div>
     <div><%= @created_shelter.city %>, <%=@created_shelter.state %> <%= @created_shelter.zip %></div>
     <br>
-    <strong><div> <%= button_to "Volunteer Here!", new_shelter_volunteer_session_path(@created_shelter.id), method: :get, class: "button small"%></div></strong>
+    <% if @created_shelter.id %>
+      <strong><div> <%= button_to "Volunteer Here!", new_shelter_volunteer_session_path(@created_shelter.id), method: :get, class: "button small"%></div></strong>
+    <% end %>
     <br>
 </div>
