@@ -10,19 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170206163237) do
+ActiveRecord::Schema.define(version: 20170206201142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "join_shelters", force: :cascade do |t|
-    t.integer "shelter_id", null: false
-    t.string  "key_zip",    null: false
-  end
-
   create_table "shelters", force: :cascade do |t|
     t.string   "name",       null: false
-    t.string   "address",    null: false
+    t.string   "address"
     t.string   "city",       null: false
     t.string   "state",      null: false
     t.string   "zip",        null: false
@@ -53,10 +48,12 @@ ActiveRecord::Schema.define(version: 20170206163237) do
   end
 
   create_table "volunteer_sessions", force: :cascade do |t|
+    t.integer "user_id",    null: false
     t.integer "shelter_id", null: false
     t.string  "time",       null: false
-    t.string  "date"
-    t.integer "user_id"
+    t.string  "date",       null: false
+    t.index ["shelter_id"], name: "index_volunteer_sessions_on_shelter_id", using: :btree
+    t.index ["user_id"], name: "index_volunteer_sessions_on_user_id", using: :btree
   end
 
 end
