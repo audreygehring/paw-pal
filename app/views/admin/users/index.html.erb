@@ -1,13 +1,12 @@
 <div class="callout" id="non-home-pages">
 <% if current_user && current_user.admin? %>
-    <h5> User Account List </h5>
-    <%= link_to "Back", shelters_path, method: :get %> |
-    <%= link_to "Volunteer Sessions List", admin_volunteer_sessions_path, method: :get %>
-    <br><br>
+    <h5><strong>User Account List</strong></h5>
+    <h5><%= link_to "Back", shelters_path, method: :get, id: "inverse-link" %> |
+    <%= link_to "Volunteer Sessions List", admin_volunteer_sessions_path, method: :get, id: "inverse-link" %></h5>
     <% @users.each do |user| %>
       <div class="callout" id="inner-callout">
         <%= user.first_name %> <%= user.last_name %>
-        <%= link_to "Delete #{user.email}'s Account", admin_user_path(user), method: :delete %><br>
+        <%= link_to "Delete #{user.email}'s Account", admin_user_path(user), method: :delete, id: "inverse-link" %><br>
       </div>
       <% end %><br>
   </div>

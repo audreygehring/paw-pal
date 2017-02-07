@@ -5,7 +5,7 @@
 
   <section class="top-bar-right">
     <% if current_user %>
-      <%= link_to current_user.email, user_path(current_user), id: "link" %> |
+      signed in as <%= current_user.first_name %> |
       <%= link_to "view profile", user_path(current_user), id: "link" %> |
       <%= link_to "sign out", destroy_user_session_path, method: :delete, id: "link"  %>
       <% if current_user.admin == true %>

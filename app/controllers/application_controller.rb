@@ -43,8 +43,8 @@ class ApplicationController < ActionController::Base
       state: @shelter_show_data["state"]["$t"],
       zip: @shelter_show_data["zip"]["$t"],
       key: shelter_key,
-      website: "",
-      description: ""
+      description: "",
+      website: ""
     )
 
     @created_shelter.save
