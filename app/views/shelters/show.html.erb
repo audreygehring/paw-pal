@@ -3,7 +3,7 @@
     <strong><div><%= @created_shelter.name %></div></strong>
     <div><%= @created_shelter.address %></div>
     <div><%= @created_shelter.city %>, <%=@created_shelter.state %> <%= @created_shelter.zip %></div>
-      <% if @created_shelter.website %>
+      <% if @created_shelter.website != "" %>
         <div><%= link_to "Website", @created_shelter.website, target: "_blank" %></div>
       <% end %>
     <br>

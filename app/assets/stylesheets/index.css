@@ -44,6 +44,7 @@ body {
 .callout#non-home-pages {
   width: 700px;
   margin: auto;
+  opacity: 0.85;
 }
 
 .callout#inner-callout {
