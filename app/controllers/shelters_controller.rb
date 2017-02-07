@@ -8,10 +8,21 @@ class SheltersController < ApplicationController
   end
 
   def show
-    if params[:id].length > 5
+    id = params[:id].split('')
+    zip_array = []
+
+    5.times do
+      zip_array << id.pop
+    end
+
+    @shelter_key = id.join('')
+    @zip_code = zip_array.reverse.join('')
+
+    if params[:id].length > 6 && Shelter.where(key: @shelter_key) == []
       params_parse(params[:id])
     else
-      @created_shelter = Shelter.find(params[:id])
+      @created_shelter = Shelter.where(key: @shelter_key)
+      @created_shelter = @created_shelter[0]
       @volunteer_sessions = VolunteerSession.where(shelter: @created_shelter)
     end
   end

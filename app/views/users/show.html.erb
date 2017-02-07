@@ -7,7 +7,7 @@
   </div>
 
   <h5><strong>Upcoming Volunteer Sessions</strong></h5>
-    <% @upcoming_volunteer_sessions.each do |upcoming_volunteer_sessions| %>
+    <% @upcoming_volunteer_sessions.order('date').each do |upcoming_volunteer_sessions| %>
       <div class="callout" id="inner-callout">
         <div class="small-8 columns">
           <% shelter = Shelter.find(upcoming_volunteer_sessions.shelter) %>
@@ -23,7 +23,7 @@
     <% end %>
 
     <h5><strong>Past Volunteer Sessions</strong></h5>
-      <% @past_volunteer_sessions.each do |past_volunteer_sessions| %>
+      <% @past_volunteer_sessions.order('date').each do |past_volunteer_sessions| %>
         <div class="callout" id="inner-callout">
           <div class="small-8 columns">
             <% shelter = Shelter.find(past_volunteer_sessions.shelter) %>

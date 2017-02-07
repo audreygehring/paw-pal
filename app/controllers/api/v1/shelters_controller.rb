@@ -12,12 +12,4 @@ class Api::V1::SheltersController < ApplicationController
     @raw_shelters_hash = {shelters: @raw_shelters}
     render json: @raw_shelters_hash
   end
-
-  def new
-
-  end
-
-  def create
-
-  end
 end
