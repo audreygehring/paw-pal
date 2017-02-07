@@ -20,10 +20,9 @@ feature "user signs up", %{
 
     fill_in "Email", with: user1.email
     fill_in "Password", with: user1.password
-
     click_button "Sign In"
 
-    expect(page).to have_content("Sign Out")
+    expect(page).to have_content("sign out")
   end
 
   scenario "specify invalid credentials" do
@@ -31,6 +30,6 @@ feature "user signs up", %{
 
     click_button "Sign In"
     expect(page).to have_content("Invalid Email or password")
-    expect(page).to_not have_content("Sign Out")
+    expect(page).to_not have_content("sign out")
   end
 end

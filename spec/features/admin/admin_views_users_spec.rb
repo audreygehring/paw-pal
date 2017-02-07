@@ -19,7 +19,7 @@ feature "admin can see all of the users", %{
     fill_in "Password", with: user1.password
     click_button "Sign In"
 
-    click_link "Admin"
+    click_link "admin"
 
     expect(page).to have_content user1.first_name
     expect(page).to have_content user2.first_name
@@ -34,7 +34,7 @@ feature "admin can see all of the users", %{
     fill_in "Password", with: user1.password
     click_button "Sign In"
 
-    expect(page).to have_content "Admin"
+    expect(page).to have_content "admin"
 
     visit admin_users_path
 

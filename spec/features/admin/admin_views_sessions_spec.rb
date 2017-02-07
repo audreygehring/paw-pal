@@ -23,7 +23,7 @@ feature "admin can see all of the volunteer sessions", %{
     fill_in "Password", with: user1.password
     click_button "Sign In"
 
-    click_link "Admin"
+    click_link "admin"
 
     click_link "Volunteer Sessions List"
 

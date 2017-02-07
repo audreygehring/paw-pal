@@ -28,7 +28,7 @@ require 'rails_helper'
       click_button "Sign Up"
 
       expect(page).to have_content("Welcome! You have signed up successfully.")
-      expect(page).to have_content("Sign Out")
+      expect(page).to have_content("sign out")
     end
 
     scenario "user signs up using invalid information" do
@@ -37,6 +37,6 @@ require 'rails_helper'
       click_button "Sign Up"
 
       expect(page).to have_content("can't be blank")
-      expect(page).to_not have_content("Sign Out")
+      expect(page).to_not have_content("sign out")
     end
   end
