@@ -19,13 +19,13 @@ feature "user signs out", %{
     fill_in "Password", with: user1.password
     click_button "Sign In"
 
-    click_link "Sign Out"
+    click_link "sign out"
 
     expect(page).to have_content("Signed out successfully")
   end
 
   scenario "unauthenticated user attempts to sign out" do
     visit root_path
-    expect(page).to_not have_content("Sign Out")
+    expect(page).to_not have_content("sign out")
   end
 end

@@ -18,10 +18,11 @@ feature "user deletes account", %{
     visit new_user_session_path
     fill_in "Email", with: user1.email
     fill_in "Password", with: user1.password
-
     click_button "Sign In"
 
-    click_link "Edit Profile"
+    click_link "view profile"
+
+    click_link "Edit Account"
 
     click_button "Cancel my account"
 
