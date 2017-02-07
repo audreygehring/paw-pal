@@ -15,14 +15,14 @@ require 'rails_helper'
   So that I can create an account
   } do
 
-    xscenario "user signs up using valid information" do
+    scenario "user signs up using valid information" do
       visit new_user_registration_path
 
       fill_in "First Name", with: "Arya"
       fill_in "Last Name", with: "Stark"
       fill_in "Email", with: "arya@stark.com"
-      fill_in "Password", with: "password"
-      fill_in "Password Confirmation", with: "password"
+      fill_in "user_password", with: "password"
+      fill_in "user_password_confirmation", with: "password"
       fill_in "Favorite Animal", with: "Horse"
 
       click_button "Sign Up"

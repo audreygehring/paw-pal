@@ -17,7 +17,7 @@ feature "user signs out", %{
 
     fill_in "Email", with: user1.email
     fill_in "Password", with: user1.password
-    click_button "Log in"
+    click_button "Sign In"
 
     click_link "Sign Out"
 

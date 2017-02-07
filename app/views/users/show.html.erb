@@ -1,17 +1,17 @@
 <div class="callout" id="non-home-pages">
   <div class="columns large-12 small-12">
-    <div>Welcome, <%= current_user.first_name %>!</div>
+    <strong><div>Welcome, <%= current_user.first_name %>!</div></strong>
     <div><%= current_user.email %></div>
     <div>Favorite Animal: <%= current_user.favorite_animal %></div><br>
     <div><%= link_to "Edit Account", edit_user_registration_path, class: "button small" %></div>
   </div>
 
-  <h2>Volunteer Sessions</h2>
+  <h5>Volunteer Sessions</h5>
     <% @volunteer_sessions.each do |volunteer_session| %>
       <div class="callout" id="inner-callout">
         <div class="small-7 columns">
-          <% shelter = Shelter.find(volunteer_session.shelter_id) %>
-          <strong><%= shelter.name %></strong><br>
+          <% shelter = Shelter.find(volunteer_session.shelter) %>
+          <strong><%= link_to shelter.name, shelter_path(shelter) %></strong><br>
           When: <%= volunteer_session.date %> from <%= volunteer_session.time %>
         </div>
         <div class="small-5 columns">

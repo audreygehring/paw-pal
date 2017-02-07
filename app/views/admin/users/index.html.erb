@@ -1,6 +1,6 @@
 <div class="callout" id="non-home-pages">
 <% if current_user && current_user.admin? %>
-    <h2> User Account List </h2>
+    <h5> User Account List </h5>
     <%= link_to "Back", shelters_path, method: :get %> |
     <%= link_to "Volunteer Sessions List", admin_volunteer_sessions_path, method: :get %>
     <br><br>
