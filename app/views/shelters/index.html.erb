@@ -7,7 +7,7 @@
     <% if current_user == volunteer_session.user %>
       <% shelter = Shelter.find(volunteer_session.shelter_id) %>
         <div class="callout" id="index-callout">
-          <strong><%= link_to shelter.name, shelter_path(shelter) %></strong><br>
+          <strong><%= link_to shelter.name, shelter_path(shelter), id: "inverse-link" %></strong><br>
           <%= volunteer_session.date %> from <%= volunteer_session.time %>
         <% end %>
       </div>
