@@ -4,7 +4,7 @@ class SheltersController < ApplicationController
   end
 
   def show
-    if params[:id].length >= 5
+    if params[:id].length > 5
       id = params[:id].split('')
       zip_array = []
 
