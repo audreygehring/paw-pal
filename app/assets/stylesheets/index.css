@@ -43,3 +43,17 @@ body {
 .callout#inner-callout {
 
 }
+
+.callout#index-title {
+  opacity: 0.8;
+  font-size: 13px;
+  text-align: center;
+  height: 50px;
+}
+
+.callout#index-callout {
+  opacity: 0.8;
+  overflow: auto;
+  font-size: 13px;
+  text-align: center;
+}
