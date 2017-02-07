@@ -18,6 +18,22 @@ class VolunteerSessionsController < ApplicationController
     end
   end
 
+  def edit
+    @volunteer_session = VolunteerSession.find(params[:id])
+    @shelter = @volunteer_session.shelter
+    @times = VolunteerSession::TIMES
+  end
+
+  def update
+    @volunteer_session = VolunteerSession.find(params[:id])
+    @shelter = @volunteer_session.shelter
+
+    if @volunteer_session.update(volunteer_session_params)
+      flash[:notice] = "Session updated successfully."
+      redirect_to user_path(current_user)
+    end
+  end
+
   def destroy
     @volunteer_session = VolunteerSession.find(params[:id])
 

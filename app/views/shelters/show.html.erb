@@ -18,12 +18,12 @@
     <% else %>
       <% @volunteer_sessions.each do |volunteer_session| %>
       <% volunteer = User.find(volunteer_session.user.id) %>
-      <% if current_user == volunteer_session.user || current_user.admin? %>
-        <div class="callout" id="inner-callout">
+        <% if current_user == volunteer_session.user || current_user.admin? %>
+          <div class="callout" id="inner-callout">
             <%= volunteer.email %><br>
             <%= volunteer_session.date %> from <%= volunteer_session.time %>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>

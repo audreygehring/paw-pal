@@ -1,0 +1,18 @@
+<div class="callout" id="non-home-pages">
+  <%= form_for [@shelter, @volunteer_session] do |f| %>
+    <h5>Volunteer at <%= @shelter.name %></h5>
+      <div class="field">
+        <% f.label :date %>
+        <%= f.date_field(:date) %>
+      </div>
+
+      <div class="field">
+        <% f.label :time %>
+        <%= f.select(:time, options_for_select(@times)) %>
+      </div>
+
+      <div>
+        <%= f.submit "Submit", class: "button small" %>
+      </div>
+  <% end %>
+</div>
