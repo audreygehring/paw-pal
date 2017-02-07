@@ -17,7 +17,7 @@ feature "admin can see all of the users", %{
     visit new_user_session_path
     fill_in "Email", with: user1.email
     fill_in "Password", with: user1.password
-    click_button "Log in"
+    click_button "Sign In"
 
     click_link "Admin"
 
@@ -32,7 +32,7 @@ feature "admin can see all of the users", %{
     visit new_user_session_path
     fill_in "Email", with: user1.email
     fill_in "Password", with: user1.password
-    click_button "Log in"
+    click_button "Sign In"
 
     expect(page).to have_content "Admin"
 
@@ -51,7 +51,7 @@ feature "admin can see all of the users", %{
     visit new_user_session_path
     fill_in "Email", with: user2.email
     fill_in "Password", with: user2.password
-    click_button "Log in"
+    click_button "Sign In"
 
     visit admin_users_path
 

@@ -9,6 +9,12 @@ h2 {
   text-align: center;
 }
 
+h5 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 17px;
+}
+
 .top-bar-right {
   margin-top: 8px;
 }
@@ -45,14 +51,14 @@ body {
 }
 
 .callout#index-title {
-  opacity: 0.8;
+  opacity: 0.75;
   font-size: 13px;
   text-align: center;
   height: 50px;
 }
 
 .callout#index-callout {
-  opacity: 0.8;
+  opacity: 0.75;
   overflow: auto;
   font-size: 13px;
   text-align: center;

@@ -6,8 +6,8 @@
     <br><br>
     <% @volunteer_sessions.each do |volunteer_session| %>
       <div class="callout" id="inner-callout">
-        <% volunteer = User.find(volunteer_session.user) %>
-        <% shelter = Shelter.find(volunteer_session.shelter) %>
+        <% volunteer = User.find(volunteer_session.user.id) %>
+        <% shelter = Shelter.find(volunteer_session.shelter.id) %>
         <strong><%= shelter.name %></strong><br>
         <%= volunteer.email %> (<%= volunteer_session.date %> from <%= volunteer_session.time %>)<br>
         <%= link_to "Delete Session", admin_volunteer_session_path(volunteer_session), method: :delete %><br>

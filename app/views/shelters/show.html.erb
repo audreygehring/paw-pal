@@ -1,14 +1,17 @@
 <div class="callout" id="non-home-pages">
-  <div class="small-6 columns">
-    <div><%= @created_shelter.name %></div>
+  <div class="small-12 columns">
+    <strong><div><%= @created_shelter.name %></div></strong>
     <div><%= @created_shelter.address %></div>
     <div><%= @created_shelter.city %>, <%=@created_shelter.state %> <%= @created_shelter.zip %></div>
     <br>
+    <div><%= @created_shelter.description %></div>
+    <br>
     <strong><div> <%= button_to "Volunteer Here!", new_shelter_volunteer_session_path(@created_shelter.id), method: :get, class: "button small" %></div></strong>
   </div>
-  <div class="small-6 columns">
+  <h5>Upcoming Volunteer Sessions</h5>
+  <div>
     <% @volunteer_sessions.each do |volunteer_session| %>
-    <% volunteer = User.find(volunteer_session.user) %>
+    <% volunteer = User.find(volunteer_session.user.id) %>
     <% if current_user == volunteer_session.user || current_user.admin? %>
       <div class="callout" id="inner-callout">
           <%= volunteer.email %><br>
