@@ -7,11 +7,12 @@ a#link:hover {
 }
 
 body {
-  background-image: url('http://i.imgur.com/IRpn6rDr.jpg')
+  background-image: url('http://i.imgur.com/IRpn6rDr.jpg');
 }
 
 .button {
   background-color: #5C5863;
+  font-family: 'Spinnaker', sans-serif;
 }
 
 .button:hover {
@@ -88,4 +89,9 @@ h5 {
   color: white;
   margin-top: 36px;
   font-size: 17px;
+}
+
+.user-page {
+  font-family: 'Spinnaker', sans-serif;
+  text-align: center;
 }
