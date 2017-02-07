@@ -11,11 +11,11 @@
       <div class="callout" id="inner-callout">
         <div class="small-7 columns">
           <% shelter = Shelter.find(volunteer_session.shelter) %>
-          <strong><%= link_to shelter.name, shelter_path(shelter) %></strong><br>
+          <strong><%= link_to shelter.name, shelter_path(shelter), id: "inverse-link" %></strong><br>
           When: <%= volunteer_session.date %> from <%= volunteer_session.time %>
         </div>
         <div class="small-5 columns">
-          <%= link_to "Delete Session", shelter_volunteer_session_path(shelter, volunteer_session), method: :delete %><br>
+          <%= link_to "Delete Session", shelter_volunteer_session_path(shelter, volunteer_session), method: :delete, id: "inverse-link" %><br>
         </div>
       </div>
     <% end %>

@@ -1,31 +1,33 @@
-
-.top-bar-left {
-  font-size: 26px;
+a#link {
+  color: white;
 }
 
-h2 {
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-}
-
-h5 {
-  text-align: center;
-  font-weight: bold;
-  font-size: 17px;
-}
-
-.top-bar-right {
-  margin-top: 8px;
+a#link:hover {
+  color: #EEE9E5;
 }
 
 body {
   background-image: url('http://i.imgur.com/IRpn6rDr.jpg')
 }
 
-.title-text {
+.callout#index-callout {
+  opacity: 0.75;
+  overflow: auto;
+  font-size: 13px;
   text-align: center;
-  font-size: 30px;
+}
+
+.callout#index-title {
+  opacity: 0.75;
+  font-size: 13px;
+  text-align: center;
+  overflow: auto;
+}
+
+.callout#non-home-pages {
+  width: 700px;
+  margin: auto;
+  opacity: 0.85;
 }
 
 .callout {
@@ -40,27 +42,43 @@ body {
   margin: auto;
 }
 
-
-.callout#non-home-pages {
-  width: 700px;
-  margin: auto;
-  opacity: 0.85;
-}
-
-.callout#inner-callout {
-
-}
-
-.callout#index-title {
-  opacity: 0.75;
-  font-size: 13px;
+h2 {
+  font-size: 24px;
+  font-weight: bold;
   text-align: center;
-  height: 50px;
 }
 
-.callout#index-callout {
-  opacity: 0.75;
-  overflow: auto;
-  font-size: 13px;
+h5 {
   text-align: center;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+#inverse-link {
+  color: #66245B;
+}
+
+#inverse-link:hover {
+  color: #5C5863;
+}
+
+.title-text {
+  text-align: center;
+  font-size: 30px;
+}
+
+.top-bar {
+  background-color: #5C5863;
+  font-family: 'Spinnaker', sans-serif;
+}
+
+.top-bar-left {
+  font-size: 50px;
+  font-family: 'Megrim', cursive;
+}
+
+.top-bar-right {
+  color: white;
+  margin-top: 34px;
+  font-size: 18px;
 }

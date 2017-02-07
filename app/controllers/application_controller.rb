@@ -35,6 +35,7 @@ class ApplicationController < ActionController::Base
 
     @shelter_show_data = shelter_info["petfinder"]["shelter"]
 
+
     @created_shelter = Shelter.find_or_create_by(
       name: @shelter_show_data["name"]["$t"],
       address: @shelter_show_data["address1"]["$t"],
@@ -45,7 +46,7 @@ class ApplicationController < ActionController::Base
       website: "",
       description: ""
     )
-    
+
     @created_shelter.save
 
     @user = current_user
