@@ -10,6 +10,14 @@ body {
   background-image: url('http://i.imgur.com/IRpn6rDr.jpg')
 }
 
+.button {
+  background-color: #5C5863;
+}
+
+.button:hover {
+  background-color: #A1355F;
+}
+
 .callout#index-callout {
   opacity: 0.75;
   overflow: auto;
