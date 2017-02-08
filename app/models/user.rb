@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates_format_of :email, :with => /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   validates :admin, inclusion: { in: [true, false] }
+  validates :role, inclusion: { in: ["Volunteer", "Rescue Owner"] }
 
   devise  :database_authenticatable,
           :registerable,

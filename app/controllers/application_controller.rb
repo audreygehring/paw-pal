@@ -34,7 +34,8 @@ class ApplicationController < ActionController::Base
     zip: @shelter_show_data["zip"]["$t"],
     key: @shelter_key,
     description: "",
-    website: ""
+    website: "",
+    user_id: nil
   )
     @created_shelter.save
 
@@ -55,6 +56,7 @@ class ApplicationController < ActionController::Base
       :first_name,
       :last_name,
       :favorite_animal,
+      :role,
       :remember_me
     ]
     devise_parameter_sanitizer.permit(:sign_up, keys: added_attrs)
