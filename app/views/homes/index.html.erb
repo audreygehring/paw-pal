@@ -1,10 +1,3 @@
 <div>
   <%= render 'layouts/search' %>
-  <ul>
-    <% @shelters.each do |shelter| %>
-    <li><%= shelter.name %></li>
-      <%= shelter.address %>
-      <%= shelter.city %>, <%= shelter.state %> <%= shelter.zip %><br><br>
-    <% end %>
-  </ul>
 </div>
