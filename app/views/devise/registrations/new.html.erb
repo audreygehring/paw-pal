@@ -23,7 +23,13 @@
       </div>
 
       <div class="field">
-        <%= f.password_field :password, label: "Password", autocomplete: "off", placeholder: "Password (Must be 6 Characters)"%>
+        <% f.label :role %>
+        <%= f.radio_button :role, "Volunteer", checked: true %> Volunteer
+        <%= f.radio_button :role, "Rescue Owner" %> Rescue Owner
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password, label: "Password", autocomplete: "off", placeholder: "Password (Must be 6 Characters)" %>
       </div>
 
       <div class="field">

@@ -26,7 +26,7 @@ import { Callout } from 'react-foundation';
    return(
      <div className="large-6 small-6 columns">
       <Callout id="shelters-index">
-        <div onClick={onClick}>
+        <div onClick={onClick} id="inverse-link">
           {this.props.name}
           {showDetails}
         </div>

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :shelters, except: [:index] do
     resources :volunteer_sessions, except: [:index]
+    resources :users, only: [:edit, :update]
   end
 
   resources :shelters, only: [:index, :show]
