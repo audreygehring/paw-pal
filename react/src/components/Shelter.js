@@ -15,7 +15,7 @@ import { Callout } from 'react-foundation';
         <div>
           <div>{this.props.address}</div>
           <div>{this.props.city}, {this.props.state} {this.props.zip}</div><br/>
-          <strong><a className="button small" href={`/shelters/${this.props.id}${this.props.zip}`}>More</a></strong>
+          <a className="button small" href={`/shelters/${this.props.id}${this.props.zip}`}>More</a>
         </div>;
       }
 

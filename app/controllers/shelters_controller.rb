@@ -18,11 +18,14 @@ class SheltersController < ApplicationController
     @shelter_key = id.join('')
     @zip_code = zip_array.reverse.join('')
 
+
     if params[:id].length > 6 && Shelter.where(key: @shelter_key) == []
       params_parse(params[:id])
+    elsif params[:id].length <= 3
+      @created_shelter = Shelter.find(params[:id])
+      @volunteer_sessions = VolunteerSession.where(shelter: @created_shelter)
     else
-      @created_shelter = Shelter.where(key: @shelter_key)
-      @created_shelter = @created_shelter[0]
+      @created_shelter = Shelter.where(key: @shelter_key)[0]
       @volunteer_sessions = VolunteerSession.where(shelter: @created_shelter)
     end
   end
