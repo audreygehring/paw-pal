@@ -2,7 +2,7 @@ class Admin::VolunteerSessionsController < ApplicationController
   before_action :authenticate_user!, :is_admin?
 
   def index
-    @volunteer_sessions = VolunteerSession.all
+    @volunteer_sessions = VolunteerSession.where('date >= ?', Date.today)
   end
 
   def destroy
