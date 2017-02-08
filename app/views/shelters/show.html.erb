@@ -11,17 +11,17 @@
     <br>
     <%= link_to "Volunteer Here!", new_shelter_volunteer_session_path(@created_shelter.id), method: :get, class: "button small" %>
   </div>
-  <h5>Upcoming Volunteer Sessions</h5>
+  <h5><strong><%= "Upcoming Volunteer Sessions for #{current_user.first_name}" %></strong></h5>
   <div>
     <% if @volunteer_sessions.empty? %>
       <i>No volunteer sessions scheduled at this shelter.</i>
     <% else %>
-      <% @volunteer_sessions.each do |volunteer_session| %>
+      <% @volunteer_sessions.order('date').each do |volunteer_session| %>
       <% volunteer = User.find(volunteer_session.user.id) %>
         <% if current_user == volunteer_session.user || current_user.admin? %>
           <div class="callout" id="inner-callout">
-            <%= volunteer.email %><br>
-            <%= volunteer_session.date %> from <%= volunteer_session.time %>
+            <% date = DateTime.parse(volunteer_session.date) %>
+            <%= date.strftime("%a, %B %d") %> from <%= volunteer_session.time %>
           </div>
         <% end %>
       <% end %>

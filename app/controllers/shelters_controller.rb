@@ -24,9 +24,11 @@ class SheltersController < ApplicationController
     elsif params[:id].length <= 3
       @created_shelter = Shelter.find(params[:id])
       @volunteer_sessions = VolunteerSession.where(shelter: @created_shelter)
+      @volunteer_sessions = @volunteer_sessions.where('date >= ?', Date.today)
     else
       @created_shelter = Shelter.where(key: @shelter_key)[0]
       @volunteer_sessions = VolunteerSession.where(shelter: @created_shelter)
+      @volunteer_sessions = @volunteer_sessions.where('date >= ?', Date.today)
     end
   end
 end
