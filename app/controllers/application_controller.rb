@@ -40,6 +40,7 @@ class ApplicationController < ActionController::Base
 
     @user = current_user
     @volunteer_sessions = VolunteerSession.where(shelter: @created_shelter)
+    @volunteer_sessions = @volunteer_sessions.where('date >= ?', Date.today)
   end
 
 
