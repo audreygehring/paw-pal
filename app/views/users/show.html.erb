@@ -2,15 +2,14 @@
   <div class="columns large-12 small-12">
     <strong><div class="user-page">Welcome, <%= current_user.first_name %>!</div></strong>
     <div class="user-page"><%= current_user.email %></div>
-    <div class="user-page">favorite animal: <%= current_user.favorite_animal %></div>
+    <div class="user-page">favorite animal: <%= current_user.favorite_animal %></div><br>
   </div>
 
-<% if current_user.role == "Rescue Owner" %>
-  <% owned_shelter = Shelter.find(current_user.shelter_id) %>
-  <div class="user-page">owned shelter: <strong><%= owned_shelter.name %></strong></div><br>
-
-  <div class="user-page"><%= link_to "Edit Account", edit_user_registration_path, class: "button small" %></div>
-  <h5><strong>Upcoming Volunteer Sessions at <%= owned_shelter.name %></strong></h5>
+  <% if current_user.role == "Rescue Owner" %>
+    <% owned_shelter = Shelter.find(current_user.shelter_id) %>
+    <div class="user-page">owned shelter: <strong><%= owned_shelter.name %></strong></div><br>
+    <div class="user-page"><%= link_to "Edit Account", edit_user_registration_path, class: "button small" %></div>
+    <h5><strong>Upcoming Volunteer Sessions at <%= link_to owned_shelter.name, shelter_path(owned_shelter), id: "inverse-link" %></strong></h5>
     <% @upcoming_volunteer_sessions.order('date').each do |upcoming_volunteer_session| %>
       <div class="callout" id="inner-callout">
         <div class="small-8 columns">
@@ -20,31 +19,30 @@
           When: <%= date.strftime("%a, %B %d") %> from <%= upcoming_volunteer_session.time %>
         </div>
         <div class="small-4 columns">
-      </div>
-  </div>
-<% end %>
-
-
-<% end %>
-
-
-<% if current_user.role == "Volunteer" %><br>
-  <div class="user-page"><%= link_to "Edit Account", edit_user_registration_path, class: "button small" %></div>
-  <h5><strong>Upcoming Volunteer Sessions</strong></h5>
-    <% @upcoming_volunteer_sessions.order('date').each do |upcoming_volunteer_sessions| %>
-      <div class="callout" id="inner-callout">
-        <div class="small-8 columns">
-          <% shelter = Shelter.find(upcoming_volunteer_sessions.shelter) %>
-          <strong><%= link_to shelter.name, shelter_path(shelter), id: "inverse-link" %></strong><br>
-          <% date = DateTime.parse(upcoming_volunteer_sessions.date) %>
-          When: <%= date.strftime("%a, %B %d") %> from <%= upcoming_volunteer_sessions.time %>
-        </div>
-        <div class="small-4 columns">
-          <%= link_to "Edit Session", edit_shelter_volunteer_session_path(shelter, upcoming_volunteer_sessions), method: :get, id: "inverse-link" %><br>
-          <%= link_to "Delete Session", shelter_volunteer_session_path(shelter, upcoming_volunteer_sessions), method: :delete, id: "inverse-link" %>
+          <%= link_to "Delete Session", shelter_volunteer_session_path(owned_shelter, upcoming_volunteer_session), method: :delete, id: "inverse-link" %>
         </div>
       </div>
     <% end %>
+  <% end %>
+
+
+  <% if current_user.role == "Volunteer" %>
+    <div class="user-page"><%= link_to "Edit Account", edit_user_registration_path, class: "button small" %></div>
+      <h5><strong>Upcoming Volunteer Sessions</strong></h5>
+      <% @upcoming_volunteer_sessions.order('date').each do |upcoming_volunteer_sessions| %>
+        <div class="callout" id="inner-callout">
+          <div class="small-8 columns">
+            <% shelter = Shelter.find(upcoming_volunteer_sessions.shelter) %>
+            <strong><%= link_to shelter.name, shelter_path(shelter), id: "inverse-link" %></strong><br>
+            <% date = DateTime.parse(upcoming_volunteer_sessions.date) %>
+            When: <%= date.strftime("%a., %B %d") %> from <%= upcoming_volunteer_sessions.time %>
+          </div>
+          <div class="small-4 columns">
+            <%= link_to "Edit Session", edit_shelter_volunteer_session_path(shelter, upcoming_volunteer_sessions), method: :get, id: "inverse-link" %><br>
+            <%= link_to "Delete Session", shelter_volunteer_session_path(shelter, upcoming_volunteer_sessions), method: :delete, id: "inverse-link" %>
+          </div>
+        </div>
+      <% end %>
 
     <h5><strong>Past Volunteer Sessions</strong></h5>
     <% @past_volunteer_sessions.order('date').each do |past_volunteer_sessions| %>
@@ -53,7 +51,7 @@
           <% shelter = Shelter.find(past_volunteer_sessions.shelter) %>
           <strong><%= link_to shelter.name, shelter_path(shelter), id: "inverse-link" %></strong><br>
           <% date = DateTime.parse(past_volunteer_sessions.date) %>
-          When: <%= date.strftime("%a, %B %d") %> from <%= past_volunteer_sessions.time %>
+          When: <%= date.strftime("%a., %B %d") %> from <%= past_volunteer_sessions.time %>
         </div>
         <div class="small-4 columns">
           <%= link_to "Edit Session", edit_shelter_volunteer_session_path(shelter, past_volunteer_sessions), method: :get, id: "inverse-link" %><br>
