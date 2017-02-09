@@ -7,5 +7,6 @@ FactoryGirl.define do
     password_confirmation "password"
     favorite_animal "Dog"
     admin false
+    role nil
   end
 end

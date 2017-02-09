@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :shelters, only: [:index, :show]
 
-  resources :users
+  resources :users, only: [:show]
 
   namespace :admin do
     resources :users, only: [:index, :destroy]

@@ -2,9 +2,14 @@ class SheltersController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @volunteer_sessions_initial = VolunteerSession.where(user: current_user)
-    @upcoming_volunteer_sessions = @volunteer_sessions_initial.where('date >= ?', Date.today)
-    @past_volunteer_sessions = @volunteer_sessions_initial.where('date <= ?', Date.today)
+    if current_user.role == "Volunteer"
+      @volunteer_sessions_initial = VolunteerSession.where(user: current_user)
+      @upcoming_volunteer_sessions = @volunteer_sessions_initial.where('date >= ?', Date.today)
+      @past_volunteer_sessions = @volunteer_sessions_initial.where('date <= ?', Date.today)
+    else
+      @volunteer_sessions_initial = VolunteerSession.where(shelter_id: current_user.shelter_id)
+      @upcoming_volunteer_sessions = @volunteer_sessions_initial.where('date >= ?', Date.today)
+    end
   end
 
   def show
@@ -25,7 +30,11 @@ class SheltersController < ApplicationController
       @current_user = current_user
       @created_shelter = Shelter.find(params[:id])
       @volunteer_sessions = VolunteerSession.where(shelter: @created_shelter)
-      @volunteer_sessions = VolunteerSession.where(user: @current_user)
+      if @current_user.role = "Volunteer"
+        @volunteer_sessions = VolunteerSession.where(user: @current_user)
+      else
+        @volunteer_sessions = VolunteerSession.where(shelter: @current_user.shelter)
+      end
       @volunteer_sessions = @volunteer_sessions.where('date >= ?', Date.today)
     else
       @current_user = current_user

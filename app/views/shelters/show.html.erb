@@ -1,6 +1,10 @@
 <div class="callout" id="non-home-pages">
   <div class="small-12 columns">
     <strong><div><%= @created_shelter.name %></div></strong>
+    <% if @created_shelter.user_id %>
+      <% owner = User.find(@created_shelter.user_id) %>
+      Owned By: <%= owner.first_name %> <%= owner.last_name %> (<%= owner.email %>)
+    <% end %>
     <div><%= @created_shelter.address %></div>
     <div><%= @created_shelter.city %>, <%=@created_shelter.state %> <%= @created_shelter.zip %></div>
       <% if @created_shelter.website != "" %>
@@ -9,19 +13,12 @@
     <br>
     <div><%= @created_shelter.description %></div>
     <br>
-    <% if @current_user.role == "Volunteer" %>
-      <%= link_to "Volunteer Here!", new_shelter_volunteer_session_path(@created_shelter.id), method: :get, class: "button small" %>
-    <% end %>
-    <% if @current_user.role == "Rescue Owner" && @current_user.shelter_id == nil %>
-      <%= form_tag edit_shelter_user_path(@created_shelter), method: :get do %>
-        <%= hidden_field_tag :current_user, @current_user.id %>
-        <%= submit_tag "Claim this Shelter!", class: "button small" %>
-      <% end %>
-    <% end %>
   </div>
-  <h5><strong><%= "Upcoming Volunteer Sessions for #{current_user.first_name}" %></strong></h5>
+
   <div>
     <% if @current_user.role == "Volunteer" %>
+    <%= link_to "Volunteer Here!", new_shelter_volunteer_session_path(@created_shelter.id), method: :get, class: "button small" %>
+    <h5><strong><%= "Upcoming Volunteer Sessions for #{@current_user.first_name}" %></strong></h5>
       <% if @volunteer_sessions.empty? %>
         <i>No volunteer sessions scheduled at this shelter.</i>
       <% else %>
@@ -36,6 +33,14 @@
         <% end %>
       <% end %>
     <% elsif @current_user.role == "Rescue Owner" %>
+      <% if @current_user.shelter_id == nil %>
+        <%= form_tag edit_shelter_user_path(@created_shelter), method: :get do %>
+          <%= hidden_field_tag :current_user, @current_user.id %>
+          <%= submit_tag "Claim this Shelter!", class: "button small" %>
+        <% end %>
+      <% end %>
+
+      <h5><strong><%= "Upcoming Volunteer Sessions" %></strong></h5>
       <% if @volunteer_sessions.empty? %>
         <i>No volunteer sessions scheduled yet!</i>
       <% else %>
