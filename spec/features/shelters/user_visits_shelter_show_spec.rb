@@ -7,7 +7,7 @@ feature "user visits show page", %{
 } do
 
   scenario 'user signs up for volunteer session' do
-    user1 = FactoryGirl.create(:user)
+    user1 = FactoryGirl.create(:user, role: "Volunteer")
     shelter1 = FactoryGirl.create(:shelter)
     volunteer_session1 = FactoryGirl.create(:volunteer_session, user: user1, shelter: shelter1)
 
