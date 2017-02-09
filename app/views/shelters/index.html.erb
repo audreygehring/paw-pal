@@ -3,14 +3,24 @@
     <div class="callout" id="index-title">
       <strong>Upcoming Volunteer Sessions</strong>
     </div>
-    <% @upcoming_volunteer_sessions.each do |upcoming_volunteer_sessions| %>
-    <% if current_user == upcoming_volunteer_sessions.user %>
-      <% shelter = Shelter.find(upcoming_volunteer_sessions.shelter_id) %>
-        <div class="callout" id="index-callout">
-          <strong><%= link_to shelter.name, shelter_path(shelter), id: "inverse-link" %></strong><br>
-          <% date = DateTime.parse(upcoming_volunteer_sessions.date) %>
-          When: <%= date.strftime("%a, %B %d") %> from <%= upcoming_volunteer_sessions.time %>        <% end %>
-      </div>
-    <% end %>
+    <div>
+      <% @upcoming_volunteer_sessions.each do |upcoming_volunteer_session| %>
+        <% if current_user == upcoming_volunteer_session.user %>
+        <% shelter = Shelter.find(upcoming_volunteer_session.shelter_id) %>
+          <div class="callout" id="index-callout">
+            <strong><%= link_to shelter.name, shelter_path(shelter), id: "inverse-link" %></strong><br>
+            <% date = DateTime.parse(upcoming_volunteer_session.date) %>
+            When: <%= date.strftime("%a, %B %d") %> from <%= upcoming_volunteer_session.time %>
+          </div>
+        <% elsif current_user.shelter_id == upcoming_volunteer_session.shelter_id %>
+        <% volunteer = User.find(upcoming_volunteer_session.user) %>
+        <% date = DateTime.parse(upcoming_volunteer_session.date) %>
+          <div class="callout" id="index-callout">
+            <strong><%= volunteer.first_name %> <%= volunteer.last_name %></strong><br>
+            When: <%= date.strftime("%a, %B %d") %> from <%= upcoming_volunteer_session.time %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 <% end %>

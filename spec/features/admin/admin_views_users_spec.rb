@@ -12,7 +12,7 @@ feature "admin can see all of the users", %{
 
   scenario "admin views a list of users" do
     user1 = FactoryGirl.create(:user, admin: true)
-    user2 = FactoryGirl.create(:user)
+    user2 = FactoryGirl.create(:user, role: "Volunteer")
 
     visit new_user_session_path
     fill_in "Email", with: user1.email
@@ -27,7 +27,7 @@ feature "admin can see all of the users", %{
 
   scenario "admin deletes a user" do
     user1 = FactoryGirl.create(:user, admin: true)
-    user2 = FactoryGirl.create(:user)
+    user2 = FactoryGirl.create(:user, role: "Volunteer")
 
     visit new_user_session_path
     fill_in "Email", with: user1.email
@@ -46,7 +46,7 @@ feature "admin can see all of the users", %{
 
   scenario "non-admin tries to access admin users index" do
     user1 = FactoryGirl.create(:user, admin: true)
-    user2 = FactoryGirl.create(:user)
+    user2 = FactoryGirl.create(:user, role: "Volunteer")
 
     visit new_user_session_path
     fill_in "Email", with: user2.email

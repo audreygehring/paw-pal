@@ -12,7 +12,7 @@ feature "admin can see all of the volunteer sessions", %{
 
   scenario "admin views a list of users" do
     user1 = FactoryGirl.create(:user, admin: true)
-    user2 = FactoryGirl.create(:user)
+    user2 = FactoryGirl.create(:user, role: "Volunteer")
     shelter1 = FactoryGirl.create(:shelter)
     shelter2 = FactoryGirl.create(:shelter)
     volunteer_session1 = FactoryGirl.create(:volunteer_session, user: user2, shelter: shelter2)
@@ -33,7 +33,7 @@ feature "admin can see all of the volunteer sessions", %{
 
   scenario "admin deletes a volunteer session" do
     user1 = FactoryGirl.create(:user, admin: true)
-    user2 = FactoryGirl.create(:user)
+    user2 = FactoryGirl.create(:user, role: "Volunteer")
     shelter1 = FactoryGirl.create(:shelter)
     shelter2 = FactoryGirl.create(:shelter)
     volunteer_session1 = FactoryGirl.create(:volunteer_session, user: user2, shelter: shelter2)

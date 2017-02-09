@@ -14,7 +14,7 @@ class VolunteerSessionsController < ApplicationController
 
     if @volunteer_session.save
       flash[:notice] = "Volunteer Session added successfully."
-      redirect_to user_path(@user)
+      redirect_to shelter_path(@shelter)
     end
   end
 
