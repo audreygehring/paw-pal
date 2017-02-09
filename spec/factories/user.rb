@@ -8,5 +8,6 @@ FactoryGirl.define do
     favorite_animal "Dog"
     admin false
     role nil
+    association :shelter, factory: :shelter
   end
 end

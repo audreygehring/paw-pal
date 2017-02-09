@@ -2,11 +2,10 @@ class SheltersController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    if current_user.role == "Volunteer"
       @volunteer_sessions_initial = VolunteerSession.where(user: current_user)
       @upcoming_volunteer_sessions = @volunteer_sessions_initial.where('date >= ?', Date.today)
       @past_volunteer_sessions = @volunteer_sessions_initial.where('date <= ?', Date.today)
-    else
+    if current_user && current_user.role == "Rescue Owner"
       @volunteer_sessions_initial = VolunteerSession.where(shelter_id: current_user.shelter_id)
       @upcoming_volunteer_sessions = @volunteer_sessions_initial.where('date >= ?', Date.today)
     end
