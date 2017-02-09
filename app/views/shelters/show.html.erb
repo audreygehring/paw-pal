@@ -40,14 +40,14 @@
         <% end %>
       <% end %>
 
-      <h5><strong><%= "Upcoming Volunteer Sessions" %></strong></h5>
+      <h5><strong>Upcoming Volunteer Sessions</strong></h5>
       <% if @volunteer_sessions.empty? %>
         <i>No volunteer sessions scheduled yet!</i>
       <% else %>
-        <% @volunteer_sessions = VolunteerSession.where(shelter: @created_shelter) %>
         <% @volunteer_sessions.order('date').each do |volunteer_session| %>
         <% volunteer = User.find(volunteer_session.user.id) %>
           <div class="callout" id="inner-callout">
+            <strong><%= volunteer.first_name %> <%= volunteer.last_name %></strong><br>
             <% date = DateTime.parse(volunteer_session.date) %>
             <%= date.strftime("%a, %B %d") %> from <%= volunteer_session.time %>
           </div>
