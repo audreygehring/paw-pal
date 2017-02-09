@@ -5,6 +5,5 @@ FactoryGirl.define do
     sequence(:city) { |n| "Winterfell #{n}" }
     sequence(:state) { |n| "The North #{n}" }
     sequence(:zip) { |n| "0000#{n}" }
-    association :user, factory: :user
   end
 end

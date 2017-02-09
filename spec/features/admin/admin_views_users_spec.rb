@@ -27,7 +27,7 @@ feature "admin can see all of the users", %{
 
   scenario "admin deletes a user" do
     user1 = FactoryGirl.create(:user, admin: true)
-    user2 = FactoryGirl.create(:user, role: Volunteer)
+    user2 = FactoryGirl.create(:user, role: "Volunteer")
 
     visit new_user_session_path
     fill_in "Email", with: user1.email

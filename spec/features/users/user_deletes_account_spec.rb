@@ -20,9 +20,7 @@ feature "user deletes account", %{
     fill_in "Password", with: user1.password
     click_button "Sign In"
 
-    click_link "view profile"
-
-    click_link "Edit Account"
+    visit edit_user_registration_path
 
     click_button "Cancel my account"
 
