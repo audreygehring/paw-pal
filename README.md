@@ -6,7 +6,7 @@
 http://paw-pal.herokuapp.com
 
 #About
-PawPal connects volunteers with local animal shelters/rescues to make it as easy as possible to find a place to make a difference AND play with cats and dogs.
+PawPal connects volunteers with local animal shelters/rescues to make it as easy as possible to find a place to make a difference. Volunteers can access shelters in their area and select a time to volunteer. Planned volunteer sessions show up on their home and user page for reference. Rescue Owners can also "claim" their shelter and schedule volunteer times based on their individual needs.
 
 #Basics
 
