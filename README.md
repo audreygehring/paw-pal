@@ -1,7 +1,6 @@
 ![Codeship Status for audreygehring/paw-pal](https://codeship.com/projects/2e3f1b20-c084-0134-afda-16aab041bbb2/status?branch=master)
 ![Code Climate](https://codeclimate.com/github/audreygehring/paw-pal.png)
-![Coverage Status](https://coveralls.io/repos/audreygehring/paw-pal/badge.png)
-
+[![Coverage Status](https://coveralls.io/repos/github/audreygehring/paw-pal/badge.svg?branch=master)](https://coveralls.io/github/audreygehring/paw-pal?branch=master)
 
 # PawPal
 
