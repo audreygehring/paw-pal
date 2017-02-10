@@ -25,7 +25,7 @@ feature "user creates volunteer sessions", %{
     click_link "Volunteer Here!"
 
     expect(page).to have_content
-    expect(page).to have_content(volunteer_session1.date)
+    expect(page).to have_content(volunteer_session1.time)
   end
 
   scenario "user does not see other users' volunteer sessions" do

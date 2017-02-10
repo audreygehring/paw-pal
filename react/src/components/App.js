@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <div>
         <form>
-          <input type="text" placeholder="Search Shelters by Zip Code" onChange={this.setZip}/>
+          <input type="text" className="react-search" placeholder="Search Shelters by Zip Code" onChange={this.setZip}/>
         </form>
         <div>
           <Shelters
