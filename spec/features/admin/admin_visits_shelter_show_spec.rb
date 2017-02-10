@@ -8,8 +8,8 @@ feature "admin can see all volunteer sessions", %{
   I want to have control over the users of my site,
   And see all volunteer sessions } do
 
-  scenario "admin visits a shelter show page" do
-    user1 = FactoryGirl.create(:user, admin: true)
+  xscenario "admin visits a shelter show page" do
+    user1 = FactoryGirl.create(:user, admin: true, role: "Rescue Owner")
     user2 = FactoryGirl.create(:user, role: "Volunteer")
     user3 = FactoryGirl.create(:user, role: "Volunteer")
     shelter1 = FactoryGirl.create(:shelter)
