@@ -6,11 +6,12 @@
   </div>
 
   <% if current_user.role == "Rescue Owner" %>
-    <% owned_shelter = Shelter.find(current_user.shelter_id) %>
-    <div class="user-page">owned shelter: <strong><%= owned_shelter.name %></strong></div><br>
-    <div class="user-page"><%= link_to "Edit Account", edit_user_registration_path, class: "button small" %></div>
-    <h5><strong>Upcoming Volunteer Sessions at <%= link_to owned_shelter.name, shelter_path(owned_shelter), id: "inverse-link" %></strong></h5>
-    <% @upcoming_volunteer_sessions.order('date').each do |upcoming_volunteer_session| %>
+    <% if current_user.shelter_id %>
+      <% owned_shelter = Shelter.find(current_user.shelter_id) %>
+      <div class="user-page">owned shelter: <strong><%= owned_shelter.name %></strong></div><br>
+      <div class="user-page"><%= link_to "Edit Account", edit_user_registration_path, class: "button small" %></div>
+      <h5><strong>Upcoming Volunteer Sessions at <%= link_to owned_shelter.name, shelter_path(owned_shelter), id: "inverse-link" %></strong></h5>
+      <% @upcoming_volunteer_sessions.order('date').each do |upcoming_volunteer_session| %>
       <div class="callout" id="inner-callout">
         <div class="small-8 columns">
           <% volunteer = User.find(upcoming_volunteer_session.user_id) %>
@@ -22,6 +23,9 @@
           <%= link_to "Delete Session", shelter_volunteer_session_path(owned_shelter, upcoming_volunteer_session), method: :delete, id: "inverse-link" %>
         </div>
       </div>
+      <% end %>
+    <% elsif !current_user.shelter_id %>
+      <div class="user-page"><%= link_to "Edit Account", edit_user_registration_path, class: "button small" %></div>
     <% end %>
   <% end %>
 
