@@ -2,20 +2,20 @@ require 'rails_helper'
 
   # Acceptance Criteria:
   # * I click "Sign Up" on the home page
-  # * I select user and the form live updates
+  # * I select rescue owner and the form live updates
   # * I must submit valid name, email, etc.
   # * I will be prompted to enter correct information if I enter invalid information
   # * I will click "Submit"
-  # * I will be redirected to my own user account page
+  # * I will be redirected to my own rescue owner account page
 
 
-  feature "user registers", %{
-  As an unregistered user
+  feature "rescue owner registers", %{
+  As an unregistered rescue owner
   I want to register
   So that I can create an account
   } do
 
-    scenario "user signs up using valid information" do
+    scenario "rescue owner signs up using valid information" do
       visit new_user_registration_path
 
       fill_in "First Name", with: "Arya"
@@ -24,7 +24,7 @@ require 'rails_helper'
       fill_in "user_password", with: "password"
       fill_in "user_password_confirmation", with: "password"
       fill_in "Favorite Animal", with: "Horse"
-      choose "user_role_volunteer"
+      choose "user_role_rescue_owner"
 
       click_button "Sign Up"
 
@@ -33,7 +33,7 @@ require 'rails_helper'
       expect(page).to_not have_content("admin")
     end
 
-    scenario "user signs up using invalid information" do
+    scenario "rescue owner signs up using invalid information" do
       visit new_user_registration_path
 
       click_button "Sign Up"

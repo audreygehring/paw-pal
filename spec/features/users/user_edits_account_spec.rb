@@ -13,7 +13,7 @@ feature "user edits account", %{
   So I can keep my account up to date
 } do
 
-  xscenario "edit account" do
+  scenario "edit account" do
     user1 = FactoryGirl.create(:user)
 
     visit new_user_session_path
@@ -24,7 +24,7 @@ feature "user edits account", %{
 
     visit edit_user_registration_path
 
-    fill_in "current_password", with: user1.password
+    fill_in "user_current_password", with: user1.password
 
     click_button "Update"
 
