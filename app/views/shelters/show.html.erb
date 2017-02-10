@@ -37,7 +37,7 @@
           <% end %>
         <% end %>
       <% end %>
-    <% elsif @current_user.role == "Rescue Owner" %>
+    <% elsif @current_user.role == "Rescue Owner" || @current_user.admin?%>
       <% if @current_user.shelter_id == nil %>
         <%= form_tag edit_shelter_user_path(@created_shelter), method: :get do %>
           <%= hidden_field_tag :current_user, @current_user.id %>

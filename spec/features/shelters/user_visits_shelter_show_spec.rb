@@ -6,10 +6,10 @@ feature "user visits show page", %{
   To learn more about the shelter
 } do
 
-  scenario 'user signs up for volunteer session' do
+  scenario 'user visits shelter show page' do
     user1 = FactoryGirl.create(:user, role: "Volunteer")
     shelter1 = FactoryGirl.create(:shelter)
-    volunteer_session1 = FactoryGirl.create(:volunteer_session, user: user1, shelter: shelter1)
+    shelter2 = FactoryGirl.create(:shelter)
 
     visit new_user_session_path
 
@@ -21,8 +21,8 @@ feature "user visits show page", %{
 
     expect(page).to have_content(shelter1.name)
     expect(page).to have_content("Upcoming Volunteer Sessions")
+    expect(page).to have_content "Volunteer Here!"
 
-
-    expect(page).to have_content(volunteer_session1.date)
+    expect(page).to_not have_content(shelter2.name)
   end
 end
