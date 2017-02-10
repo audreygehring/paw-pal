@@ -39,6 +39,15 @@ body {
   opacity: 0.85;
 }
 
+.callout#shelters-index {
+  background-color: #D5DED9;
+  padding-left: 35px;
+}
+
+.callout#inner-callout {
+  background-color: #E5EBE8;
+}
+
 .callout {
   overflow: auto;
   text-align: left;
