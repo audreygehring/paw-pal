@@ -24,21 +24,21 @@ class SheltersController < ApplicationController
 
     if params[:id].length > 6 && Shelter.where(key: @shelter_key) == []
       params_parse(params[:id])
-    elsif params[:id].length <= 3
+    elsif params[:id].length <= 4
       @created_shelter = Shelter.find(params[:id])
       @volunteer_sessions = VolunteerSession.where(shelter: @created_shelter)
       if current_user.role == "Volunteer"
         @volunteer_sessions = VolunteerSession.where(user: current_user)
-      else
+      elsif current_user.role == "Rescue Owner" || current_user.admin?
         @volunteer_sessions = VolunteerSession.where(shelter: current_user.shelter_id)
       end
       @volunteer_sessions = @volunteer_sessions.where('date >= ?', Date.today)
     else
       @created_shelter = Shelter.where(key: @shelter_key)[0]
       @volunteer_sessions = VolunteerSession.where(shelter: @created_shelter)
-      if current_user.role == "Volunteer"
+      if current_user.role == "Volunteer" && !current_user.admin?
         @volunteer_sessions = VolunteerSession.where(user: current_user)
-      else
+      elsif current_user.role == "Rescue Owner" && !current_user.admin?
         @volunteer_sessions = VolunteerSession.where(shelter: current_user.shelter_id)
       end
       @volunteer_sessions = @volunteer_sessions.where('date >= ?', Date.today)
