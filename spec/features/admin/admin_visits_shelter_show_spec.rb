@@ -9,7 +9,7 @@ feature "admin can see all volunteer sessions", %{
   And see all volunteer sessions } do
 
   xscenario "admin visits a shelter show page" do
-    user1 = FactoryGirl.create(:user, admin: true, role: "Rescue Owner")
+    user1 = FactoryGirl.create(:user, admin: true)
     user2 = FactoryGirl.create(:user, role: "Volunteer")
     user3 = FactoryGirl.create(:user, role: "Volunteer")
     shelter1 = FactoryGirl.create(:shelter)
