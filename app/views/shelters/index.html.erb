@@ -1,14 +1,18 @@
 <% if current_user %>
-  <div class="small-3 columns left-align">
-    <div class="callout" id="index-title">
+  <div class="small-9 columns">
+  </div>
+  <div class="small-3 columns">
       <% if current_user.role == "Volunteer" %>
-        <strong>Upcoming Volunteer Sessions</strong>
+        <div class="callout" id="index-title">
+          <strong>Upcoming Volunteer Sessions</strong>
+        </div>
       <% elsif current_user.role == "Rescue Owner" && current_user.shelter_id != nil %>
-        <% owned_shelter = Shelter.find(current_user.shelter_id) %>
-        <strong>Upcoming Volunteer Sessions at <br>
-          <%=link_to owned_shelter.name, shelter_path(owned_shelter), id: "inverse-link" %></strong>
+        <div class="callout" id="index-title">
+          <% owned_shelter = Shelter.find(current_user.shelter_id) %>
+          <strong>Upcoming Volunteer Sessions at <br>
+            <%=link_to owned_shelter.name, shelter_path(owned_shelter), id: "inverse-link" %></strong>
+        </div>
       <% end %>
-    </div>
     <div>
       <% @upcoming_volunteer_sessions.each do |upcoming_volunteer_session| %>
         <% if current_user == upcoming_volunteer_session.user %>
