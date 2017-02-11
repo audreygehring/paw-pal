@@ -59,7 +59,7 @@
         <% end %>
       <% end %>
     <% elsif @current_user.role == "Rescue Owner" %>
-      <% if @current_user.shelter_id == nil %>
+      <% if @current_user.shelter_id == nil && @created_shelter.user_id == nil %>
         <%= form_tag edit_shelter_user_path(@created_shelter), method: :get do %>
           <%= hidden_field_tag :current_user, @current_user.id %>
           <%= submit_tag "Claim this Shelter!", class: "button small" %>
