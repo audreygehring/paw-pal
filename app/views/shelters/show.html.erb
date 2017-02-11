@@ -16,7 +16,7 @@
   </div>
 
   <div>
-    <% if @current_user.admin? %>
+    <% if current_user.admin? %>
       <h5><strong><%= "Upcoming Volunteer Sessions at #{@created_shelter.name}" %></strong></h5>
       <% if @volunteer_sessions.empty? %>
         <i>No volunteer sessions scheduled at this shelter.</i>
@@ -37,9 +37,9 @@
           <% end %>
         <% end %>
       <% end %>
-    <% elsif @current_user.role == "Volunteer" %>
+    <% elsif current_user.role == "Volunteer" %>
       <%= link_to "Volunteer Here!", new_shelter_volunteer_session_path(@created_shelter.id), method: :get, class: "button small" %>
-      <h5><strong><%= "Upcoming Volunteer Sessions for #{@current_user.first_name}" %></strong></h5>
+      <h5><strong><%= "Upcoming Volunteer Sessions for #{current_user.first_name}" %></strong></h5>
       <% if @volunteer_sessions.empty? %>
         <i>No volunteer sessions scheduled at this shelter.</i>
       <% else %>
@@ -58,10 +58,10 @@
           <% end %>
         <% end %>
       <% end %>
-    <% elsif @current_user.role == "Rescue Owner" %>
-      <% if @current_user.shelter_id == nil && @created_shelter.user_id == nil %>
+    <% elsif current_user.role == "Rescue Owner" %>
+      <% if current_user.shelter_id == nil && @created_shelter.user_id == nil %>
         <%= form_tag edit_shelter_user_path(@created_shelter), method: :get do %>
-          <%= hidden_field_tag :current_user, @current_user.id %>
+          <%= hidden_field_tag :current_user, current_user.id %>
           <%= submit_tag "Claim this Shelter!", class: "button small" %>
         <% end %>
       <% end %>

@@ -12,10 +12,10 @@ feature "user edits account", %{
   I want to edit my account
   So I can keep my account up to date
 } do
+  let(:user1) { FactoryGirl.create(:user) }
 
   scenario "edit account" do
-    user1 = FactoryGirl.create(:user)
-
+    
     visit new_user_session_path
 
     fill_in "Email", with: user1.email

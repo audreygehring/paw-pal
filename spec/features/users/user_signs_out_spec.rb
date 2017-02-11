@@ -10,8 +10,9 @@ feature "user signs out", %{
   I want to sign out
   To protect my identity
 } do
+  let(:user1) { FactoryGirl.create(:user) }
+
   scenario "authenticated user signs out" do
-    user1 = FactoryGirl.create(:user)
 
     visit new_user_session_path
 
