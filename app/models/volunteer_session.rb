@@ -14,5 +14,5 @@ class VolunteerSession < ApplicationRecord
   validates :user_id, presence: true
   validates :time, presence: true
   validates :date, presence: true
-
+  validates :shelter_id, presence: true
 end
