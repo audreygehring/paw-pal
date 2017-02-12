@@ -27,8 +27,23 @@ feature "user creates volunteer sessions", %{
 
     click_link "Volunteer Here!"
 
-    expect(page).to have_content
-    expect(page).to have_content(session1.time)
+    fill_in "volunteer_session_date", with: "05/01/2017"
+    select("10 a.m. - 11 a.m.", from: "volunteer_session_time")
+    click_button "Submit"
+
+    expect(page).to have_content "Volunteer Session added successfully"
+  end
+
+  scenario "User signs up for volunteer session time she already has" do
+    visit new_user_session_path
+
+    fill_in "Email", with: user1.email
+    fill_in "Password", with: user1.password
+    click_button "Sign In"
+
+    visit shelter_path(shelter1)
+
+    click_link "Volunteer Here"
   end
 
   scenario "user does not see other users' volunteer sessions" do
