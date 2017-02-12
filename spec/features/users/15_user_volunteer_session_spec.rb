@@ -76,4 +76,31 @@ feature "user creates volunteer sessions", %{
 
     expect(page).to_not have_content user2.first_name
   end
+
+  scenario "user edits volunteer session" do
+    user1 = FactoryGirl.create(:user, role: "Volunteer")
+    shelter1 = FactoryGirl.create(:shelter)
+    session1 = FactoryGirl.create(:volunteer_session, user: user1, shelter: shelter1)
+
+    visit new_user_session_path
+
+    fill_in "Email", with: user1.email
+    fill_in "Password", with: user1.password
+    click_button "Sign In"
+
+    visit user_path(user1)
+
+    date = DateTime.parse(session1.date)
+    parsed_date = date.strftime("%a., %B %d")
+    expect(page).to have_content parsed_date
+
+    click_link "Edit Session"
+
+    fill_in "volunteer_session_date", with: "05/01/2017"
+    select("11 a.m. - 12 p.m.", from: "volunteer_session_time")
+    click_button "Submit"
+
+    expect(page).to have_content "Session updated successfully"
+    expect(page).to have_content "11 a.m. - 12 p.m."
+  end
 end

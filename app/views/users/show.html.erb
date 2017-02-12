@@ -36,7 +36,7 @@
       <% @upcoming_volunteer_sessions.order('date').each do |upcoming_volunteer_sessions| %>
         <div class="callout" id="inner-callout">
           <div class="small-8 columns">
-            <% shelter = Shelter.find(upcoming_volunteer_sessions.shelter) %>
+            <% shelter = Shelter.find(upcoming_volunteer_sessions.shelter_id) %>
             <strong><%= link_to shelter.name, shelter_path(shelter), id: "inverse-link" %></strong><br>
             <% date = DateTime.parse(upcoming_volunteer_sessions.date) %>
             When: <%= date.strftime("%a., %B %d") %> from <%= upcoming_volunteer_sessions.time %>
@@ -52,7 +52,7 @@
     <% @past_volunteer_sessions.order('date').each do |past_volunteer_sessions| %>
       <div class="callout" id="inner-callout">
         <div class="small-8 columns">
-          <% shelter = Shelter.find(past_volunteer_sessions.shelter) %>
+          <% shelter = Shelter.find(past_volunteer_sessions.shelter_id) %>
           <strong><%= link_to shelter.name, shelter_path(shelter), id: "inverse-link" %></strong><br>
           <% date = DateTime.parse(past_volunteer_sessions.date) %>
           When: <%= date.strftime("%a., %B %d") %> from <%= past_volunteer_sessions.time %>
