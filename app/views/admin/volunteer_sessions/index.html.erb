@@ -10,7 +10,7 @@
           <% shelter = Shelter.find(volunteer_session.shelter.id) %>
           <strong><%= shelter.name %></strong><br>
           <% date = DateTime.parse(volunteer_session.date) %>
-          <%= volunteer.first_name %> <%= volunteer.last_name %> (<%= date.strftime("%a, %B %d") %> from <%= volunteer_session.time %>)
+          <%= volunteer.first_name %> <%= volunteer.last_name %> (<%= date.strftime("%a., %B %d") %> from <%= volunteer_session.time %>)
         </div>
         <div class="small-4 columns">
           <%= link_to "Delete Session", admin_volunteer_session_path(volunteer_session), method: :delete, id: "inverse-link" %><br>
