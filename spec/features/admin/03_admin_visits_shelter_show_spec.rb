@@ -28,4 +28,8 @@ feature "admin can see all volunteer sessions", %{
     expect(page).to have_content user3.first_name
     expect(page).to have_content session2.time
   end
+
+  xscenario "admin deletes volunteer session" do
+    
+  end
 end

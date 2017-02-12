@@ -62,14 +62,14 @@ feature "admin can see all of the volunteer sessions", %{
 
   scenario "non-admin tries to access admin users index" do
     user1 = FactoryGirl.create(:user, admin: true)
-    user2 = FactoryGirl.create(:user)
+    user2 = FactoryGirl.create(:user, admin: false)
 
     visit new_user_session_path
     fill_in "Email", with: user2.email
     fill_in "Password", with: user2.password
     click_button "Sign In"
 
-    visit admin_users_path
+    visit admin_volunteer_sessions_path
 
     expect(page).to have_content "Sorry, you don't have access to that feature."
   end
