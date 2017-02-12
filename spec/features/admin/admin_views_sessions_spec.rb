@@ -27,8 +27,14 @@ feature "admin can see all of the volunteer sessions", %{
 
     click_link "Volunteer Sessions List"
 
-    expect(page).to have_content volunteer_session1.date
-    expect(page).to have_content volunteer_session2.date
+    date = DateTime.parse(volunteer_session1.date)
+    parsed_date = date.strftime("%a., %B %d")
+    expect(page).to have_content parsed_date
+
+    date2 = DateTime.parse(volunteer_session2.date)
+    parsed_date2 = date2.strftime("%a., %B %d")
+    expect(page).to have_content parsed_date
+    expect(page).to have_content parsed_date2
   end
 
   scenario "admin deletes a volunteer session" do
