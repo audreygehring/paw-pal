@@ -11,9 +11,9 @@ feature "user deletes account", %{
   I want to delete my account
   If I am unsatisfied
 } do
+  let(:user1) { FactoryGirl.create(:user) }
 
   scenario "delete account" do
-    user1 = FactoryGirl.create(:user)
 
     visit new_user_session_path
     fill_in "Email", with: user1.email

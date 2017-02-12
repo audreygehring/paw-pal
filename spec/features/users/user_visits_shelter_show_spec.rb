@@ -5,11 +5,11 @@ feature "user visits show page", %{
   I want to visit a shelter show page
   To learn more about the shelter
 } do
+  let(:user1) { FactoryGirl.create(:user, role: "Volunteer") }
+  let(:shelter1) { FactoryGirl.create(:shelter) }
+  let(:shelter2) { FactoryGirl.create(:shelter) }
 
   scenario 'user visits shelter show page' do
-    user1 = FactoryGirl.create(:user, role: "Volunteer")
-    shelter1 = FactoryGirl.create(:shelter)
-    shelter2 = FactoryGirl.create(:shelter)
 
     visit new_user_session_path
 

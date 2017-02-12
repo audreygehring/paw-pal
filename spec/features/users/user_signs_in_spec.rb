@@ -12,9 +12,9 @@ feature "user signs up", %{
   I want to Sign In
   So that I can access my account
 } do
+  let(:user1) { FactoryGirl.create(:user) }
 
   scenario "specify valid credentials" do
-    user1 = FactoryGirl.create(:user)
 
     visit new_user_session_path
 
