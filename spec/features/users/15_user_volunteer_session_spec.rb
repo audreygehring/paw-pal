@@ -103,4 +103,26 @@ feature "user creates volunteer sessions", %{
     expect(page).to have_content "Session updated successfully"
     expect(page).to have_content "11 a.m. - 12 p.m."
   end
+
+  scenario "user deletes a volunteer session" do
+    user1 = FactoryGirl.create(:user, role: "Volunteer")
+    shelter1 = FactoryGirl.create(:shelter)
+    session1 = FactoryGirl.create(:volunteer_session, user: user1, shelter: shelter1)
+
+    visit new_user_session_path
+
+    fill_in "Email", with: user1.email
+    fill_in "Password", with: user1.password
+    click_button "Sign In"
+
+    visit user_path(user1)
+
+    expect(page).to have_content session1.time
+    expect(page).to have_content shelter1.name
+
+    click_link "Delete Session"
+
+    expect(page).to have_content "Volunteer session deleted"
+    expect(page).to_not have_content shelter1.name
+  end
 end
