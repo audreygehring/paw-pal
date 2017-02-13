@@ -15,7 +15,7 @@ Volunteers can search by zip code to access shelters in their area and select a 
 
 ![alt text](http://i.imgur.com/4y5t3CK.png)
 
-Planned volunteer sessions show up on the home and user page for reference.
+Planned volunteer sessions for the current user show up on the home page, shelter page and user account page for reference.
 
 ![alt text](http://i.imgur.com/KczJveb.jpg)
 
