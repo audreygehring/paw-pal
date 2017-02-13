@@ -13,7 +13,12 @@ xfeature 'User searches for local shelters', %{
   let(:user1) { FactoryGirl.create(:user, role: "Volunteer") }
 
   scenario 'user searches by zip code', js: true do
+    visit root_path
+
+    save_and_open_page
     fill_in 'react-search', with: "53711"
+    sleep 10
+
 
     expect(page).to have_content "Companion Animal Hospital"
     expect(page).to have_content "Dane County Friends of Ferals"

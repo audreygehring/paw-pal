@@ -7,14 +7,28 @@
 http://paw-pal.herokuapp.com
 
 #About
-PawPal connects volunteers with local animal shelters/rescues to make it as easy as possible to find a place to make a difference. Volunteers can search by zip code to access shelters in their area and select a time to volunteer. Planned volunteer sessions show up on their home and user page for reference. Rescue Owners can also "claim" their shelters through the site and schedule volunteer times based on their individual needs.
+PawPal connects volunteers with local animal shelters/rescues to make it as easy as possible to find a place to make a difference.
+
+![alt text](http://i.imgur.com/dh8zEGs.jpg)
+
+Volunteers can search by zip code to access shelters in their area and select a time to volunteer.
+
+![alt text](http://i.imgur.com/4y5t3CK.png)
+
+Planned volunteer sessions show up on the home and user page for reference.
+
+![alt text](http://i.imgur.com/KczJveb.jpg)
+
+Rescue Owners can "claim" their shelters through the site and monitor scheduled volunteer times based on their individual needs.
+
+![alt text](http://i.imgur.com/zrmi8Y4.jpg)
 
 #Basics
 
-* Ruby on Rails back-end
+* Ruby on Rails back-end with PostgreSQL database
 * React front-end for live updating search functionality
-* PetFinder API integration
-* Foundation
+* PetFinder API integration through own API endpoint
+* Foundation and CSS styling
 * User authentication with Devise
 * Capybara test suite
 * Workflow organization with Trello
