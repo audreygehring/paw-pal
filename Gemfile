@@ -4,6 +4,7 @@ ruby '2.2.5'
 gem 'devise'
 gem 'dotenv'
 gem 'dotenv-rails'
+gem 'enzyme'
 gem 'foundation'
 gem 'foundation-rails'
 gem 'jquery-rails'
@@ -30,7 +31,6 @@ end
 
 group :test do
   gem 'coveralls', require: false
-  gem 'poltergeist'
 end
 
 group :production do
