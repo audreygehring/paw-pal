@@ -17,8 +17,6 @@ class ApplicationController < ActionController::Base
     @current_shelter = Shelter.where(key: @shelter_key)
   end
 
-
-
   protected
 
   def params_parse(params)
@@ -47,7 +45,7 @@ class ApplicationController < ActionController::Base
     @volunteer_sessions = VolunteerSession.where(shelter: @created_shelter)
     @volunteer_sessions = @volunteer_sessions.where('date >= ?', Date.today)
   end
-  
+
   def after_sign_in_path_for(resource)
     shelters_path
   end
