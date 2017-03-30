@@ -17,6 +17,10 @@ class ApplicationController < ActionController::Base
     @current_shelter = Shelter.where(key: @shelter_key)
   end
 
+
+
+  protected
+
   def params_parse(params)
 
     petfinder_key = ENV["PETFINDER_API_KEY"]
@@ -26,7 +30,7 @@ class ApplicationController < ActionController::Base
 
     @shelter_show_data = shelter_info["petfinder"]["shelter"]
 
-  @created_shelter = Shelter.find_or_create_by(
+    @created_shelter = Shelter.find_or_create_by(
     name: @shelter_show_data["name"]["$t"],
     address: @shelter_show_data["address1"]["$t"],
     city: @shelter_show_data["city"]["$t"],
@@ -36,17 +40,14 @@ class ApplicationController < ActionController::Base
     description: "",
     website: "",
     user_id: nil
-  )
+    )
     @created_shelter.save
 
     @user = current_user
     @volunteer_sessions = VolunteerSession.where(shelter: @created_shelter)
     @volunteer_sessions = @volunteer_sessions.where('date >= ?', Date.today)
   end
-
-
-  protected
-
+  
   def after_sign_in_path_for(resource)
     shelters_path
   end
