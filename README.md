@@ -24,7 +24,7 @@ Rescue Owners can "claim" their shelters through the site and monitor scheduled 
 
 ![alt text](http://i.imgur.com/zrmi8Y4.jpg)
 
-#Basics
+# Basics
 
 * Ruby on Rails back-end with PostgreSQL database
 * React front-end for live updating search functionality
