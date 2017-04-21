@@ -6,7 +6,8 @@
 
 http://paw-pal.herokuapp.com
 
-#About
+# About
+
 PawPal connects volunteers with local animal shelters/rescues to make it as easy as possible to find a place to make a difference.
 
 ![alt text](http://i.imgur.com/dh8zEGs.jpg)
