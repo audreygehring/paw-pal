@@ -28,7 +28,7 @@ Rescue Owners can "claim" their shelters through the site and monitor scheduled 
 
 * Ruby on Rails back-end with PostgreSQL database
 * React front-end for live updating search functionality
-* PetFinder API integration through own API endpoint
+* PetFinder API integration
 * Foundation and CSS styling
 * User authentication with Devise
 * Capybara test suite
